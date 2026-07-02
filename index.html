@@ -270,6 +270,55 @@ input[type=text]{width:100%;font-family:var(--body);font-size:18px;color:var(--t
 .copiato{display:none;color:var(--ok);font-family:var(--head);font-weight:600;font-size:15.5px}
 .copiato.on{display:inline}
 
+/* ---------- lettura ad alta voce ---------- */
+.say{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;flex:0 0 auto;
+  border:0;border-radius:50%;cursor:pointer;background:var(--priL);color:var(--pri);transition:.15s}
+.say svg{width:18px;height:18px}
+.say:hover{background:var(--carta2)}
+.say:active{transform:scale(.92)}
+.say.speaking{background:var(--pri);color:#fff;animation:sayPulse .9s ease-in-out infinite}
+.say[disabled]{opacity:.45;cursor:default}
+@keyframes sayPulse{0%,100%{box-shadow:0 0 0 0 rgba(14,94,88,.4)}50%{box-shadow:0 0 0 7px rgba(14,94,88,0)}}
+
+/* ---------- caccia alla trappola (hot text) ---------- */
+.caccia-testo{background:var(--carta2);border:1px solid var(--brd);border-radius:16px 16px 16px 4px;
+  padding:18px 22px;font-size:19.5px;line-height:2.1;max-width:72ch;margin:6px 0 4px;font-style:italic;color:var(--text)}
+.hot{border:0;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:1px 5px;margin:0 -1px;
+  border-radius:8px;border-bottom:2px dashed transparent;transition:.15s}
+.hot:hover{background:var(--priL);border-bottom-color:var(--brd2)}
+.hot.trovata{background:var(--accL);color:var(--accD);font-weight:700;border-bottom:2px solid var(--acc);cursor:default}
+.hot.err{animation:hotNo .5s ease}
+@keyframes hotNo{0%,100%{background:transparent}40%{background:var(--warnL)}}
+.caccia-prog{font-family:var(--head);font-weight:600;color:var(--muted);font-size:15.5px;margin-top:10px}
+.caccia-prog strong{color:var(--pri)}
+
+/* ---------- banco del traduttore ---------- */
+.voce{border:1.5px solid var(--brd);border-radius:14px;padding:18px 20px;background:var(--card);
+  display:flex;flex-direction:column;transition:border-color .2s}
+.voce.fatta{border-color:var(--ok)}
+.voce .sim-amb{font-size:18.5px;margin-bottom:6px}
+.voce .sim-storto{margin-bottom:10px}
+.voce textarea{margin-top:2px}
+.voce .btnrow{margin-top:12px}
+.btn-hint{background:transparent;border:0;color:var(--pri);font-family:var(--head);font-size:14.5px;
+  font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px;
+  padding:2px 0;margin:0 0 8px;align-self:flex-start}
+.btn-hint:hover{color:var(--priD)}
+.voce .fatta-chip{display:none;align-items:center;gap:6px;color:var(--ok);font-family:var(--head);
+  font-weight:700;font-size:14px}
+.voce.fatta .fatta-chip{display:inline-flex}
+
+/* ---------- radar di Eleonora ---------- */
+.radarbox{display:none;border-radius:12px;padding:13px 17px;margin-top:10px;font-size:16.5px;
+  background:var(--warnL);border:1px solid var(--gold2)}
+.radarbox.on{display:block}
+.radarbox .lab{font-family:var(--head);font-weight:700;color:var(--gold);font-size:13.5px;
+  text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:4px}
+.radarbox .eco{background:var(--card);border:1px solid var(--brd);border-radius:10px;
+  padding:10px 14px;margin:8px 0;white-space:pre-wrap}
+.radarbox mark.spy{background:#F2DFA9;color:inherit;border-bottom:2px solid var(--gold2);
+  border-radius:4px;padding:0 3px;font-weight:700}
+
 /* ---------- modal docenti ---------- */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(8,61,57,.5);z-index:100;
   align-items:center;justify-content:center;padding:20px}
@@ -331,11 +380,13 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
     <button class="pill" data-go="2" type="button"><span class="n">3</span><span>Gli ingredienti</span>
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
-    <button class="pill" data-go="3" type="button"><span class="n">4</span><span>L'officina</span>
+    <button class="pill" data-go="3" type="button"><span class="n">4</span><span>Il traduttore</span>
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
-    <button class="pill" data-go="4" type="button"><span class="n">5</span><span>Il laboratorio</span>
+    <button class="pill" data-go="4" type="button"><span class="n">5</span><span>L'officina</span>
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
-    <button class="pill" data-go="5" type="button"><span class="n">6</span><span>Rifletto</span>
+    <button class="pill" data-go="5" type="button"><span class="n">6</span><span>Il laboratorio</span>
+      <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
+    <button class="pill" data-go="6" type="button"><span class="n">7</span><span>Rifletto</span>
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
   </div>
 </nav>
@@ -390,6 +441,9 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         <span class="chi">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5h3"/></svg>
           <span>La consegna del pap&agrave; (messaggio al telefono) &mdash; rileggila con calma</span>
+          <button class="say" id="sayPapa" type="button" aria-label="Ascolta la consegna del pap&agrave; letta ad alta voce" style="margin-left:auto">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7 7 0 0 1 0 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
         </span>
         <em>&laquo;Eleonora, appena torni da scuola poggia lo zaino, <strong>alza le sedie</strong> della sala da pranzo
         e <strong>passa con la scopa sotto il tavolo</strong>. Ho lasciato dei vestiti nella lavatrice,
@@ -515,7 +569,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       </div>
 
       <div class="btnrow">
-        <button class="btn btn-avanti" data-go="3" type="button"><span>Entra nell'officina</span>
+        <button class="btn btn-avanti" data-go="3" type="button"><span>Vai al banco del traduttore</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -523,8 +577,43 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
   </div>
 </section>
 
-<!-- ============ TAPPA 4 · L'OFFICINA ============ -->
+<!-- ============ TAPPA 4 · IL BANCO DEL TRADUTTORE ============ -->
 <section class="step" id="sec3">
+  <div class="wrap">
+    <div class="card">
+      <h2 class="titolone">Il banco del traduttore</h2>
+      <p class="lead">L'indagine ha svelato il trucco preferito delle trappole: il <strong>modo di dire</strong>.
+      Funziona solo se chi ascolta conosce gi&agrave; il significato nascosto; preso alla lettera, combina disastri.
+      Su questo banco ne arrivano <strong>otto</strong>, sentiti davvero tra scuola e casa. Il tuo compito:
+      <strong>tradurli in consegne chiare</strong>, che anche Eleonora eseguirebbe al primo colpo.
+      Usa verbi concreti e di' che cosa deve succedere davvero.</p>
+
+      <div class="lab-prog">
+        <span class="num"><span id="dizFatte">0</span> su <span id="dizTot">8</span> tradotti</span>
+        <div class="barra"><i id="dizBarra"></i></div>
+      </div>
+
+      <div class="scene-grid" id="dizLista" style="margin-top:14px"></div>
+
+      <div class="badge-oro" id="badgeDiz">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="9" r="6" fill="#D4A017"/><circle cx="12" cy="9" r="3.6" fill="#FDF6E3"/><path d="M12 6.4l.8 1.6 1.8.3-1.3 1.3.3 1.8-1.6-.9-1.6.9.3-1.8-1.3-1.3 1.8-.3Z" fill="#D4A017"/><path d="M9 14.5L7 21l5-2.4L17 21l-2-6.5" fill="#0E5E58"/></svg>
+        <div class="bt">
+          <div class="t1">Traduttore della bottega</div>
+          <div class="t2">Otto su otto: nessun modo di dire ti incanta pi&ugrave;. Da adesso li senti arrivare da lontano.</div>
+        </div>
+      </div>
+
+      <div class="btnrow" id="rowAvantiDiz" style="display:none">
+        <button class="btn btn-avanti" data-go="4" type="button"><span>Entra nell'officina</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAPPA 5 · L'OFFICINA ============ -->
+<section class="step" id="sec4">
   <div class="wrap">
     <div class="card">
       <h2 class="titolone">L'officina: ora scrivi tu</h2>
@@ -538,6 +627,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
           <textarea id="txtRiscrivi" rows="11" placeholder="1. Appena entri in casa, appoggia lo zaino...&#10;2. In sala da pranzo, solleva le sedie e mettile capovolte sul tavolo...&#10;3. ..."></textarea>
           <div class="contatore"><span id="cntRiscrivi">0</span> parole</div>
           <div class="valbox" id="valRiscrivi"></div>
+          <div class="radarbox" id="radarRiscrivi"></div>
           <div class="btnrow" style="margin-top:12px">
             <button class="btn btn-pri" id="btnCollaudo" type="button">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 5.9L3 18v3h3l5.8-5.7a4.5 4.5 0 0 0 5.9-6l-3.2 3.2-2.5-.5-.5-2.5Z"/></svg>
@@ -590,7 +680,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       </div>
 
       <div class="btnrow" id="rowAvanti4" style="display:none">
-        <button class="btn btn-avanti" data-go="4" type="button"><span>Ora tocca al laboratorio</span>
+        <button class="btn btn-avanti" data-go="5" type="button"><span>Ora tocca al laboratorio</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -598,8 +688,8 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
   </div>
 </section>
 
-<!-- ============ TAPPA 5 · IL LABORATORIO ============ -->
-<section class="step" id="sec4">
+<!-- ============ TAPPA 6 · IL LABORATORIO ============ -->
+<section class="step" id="sec5">
   <div class="wrap">
     <div class="card">
       <h2 class="titolone">Il laboratorio: da ambigua a chiara</h2>
@@ -617,7 +707,12 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         <div class="lab-lista" id="labLista" aria-label="Elenco delle simulazioni"></div>
         <div class="sim-panel">
           <span class="sim-dove" id="simDove"></span>
-          <blockquote class="sim-amb" id="simAmb"></blockquote>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <blockquote class="sim-amb" id="simAmb" style="flex:1 1 auto"></blockquote>
+            <button class="say" id="saySim" type="button" aria-label="Ascolta la consegna cos&igrave; com'&egrave; stata detta">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7 7 0 0 1 0 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </button>
+          </div>
           <div class="sim-storto">
             <span class="lab">Come potrebbe finire, alla lettera</span>
             <span id="simStorto"></span>
@@ -626,6 +721,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
           <textarea id="txtSim" rows="7" placeholder="Riscrivi qui la consegna, chiara e completa: un'istruzione per riga se serve."></textarea>
           <div class="contatore"><span id="cntSim">0</span> parole</div>
           <div class="valbox" id="valSim"></div>
+          <div class="radarbox" id="radarSim"></div>
           <div class="feedback" id="fbSim"></div>
           <div class="btnrow" style="margin-top:12px">
             <button class="btn btn-pri" id="btnSim" type="button">
@@ -658,7 +754,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       </div>
 
       <div class="btnrow" id="rowAvanti5" style="display:none">
-        <button class="btn btn-avanti" data-go="5" type="button"><span>Vai all'ultima tappa</span>
+        <button class="btn btn-avanti" data-go="6" type="button"><span>Vai all'ultima tappa</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -666,8 +762,8 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
   </div>
 </section>
 
-<!-- ============ TAPPA 6 · RIFLETTO ============ -->
-<section class="step" id="sec5">
+<!-- ============ TAPPA 7 · RIFLETTO ============ -->
+<section class="step" id="sec6">
   <div class="wrap">
     <div class="card">
       <h2 class="titolone">Chiudiamo il cerchio (e svuotiamo la tasca)</h2>
@@ -682,7 +778,20 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         di partire nella direzione sbagliata, e saprai quale domanda fare. Chi scrive consegne, le legge meglio.
         Il cerchio si chiude qui.
       </div>
+    </div>
 
+    <div class="card">
+      <h2 class="titolone">La prova del nove: caccia alla trappola</h2>
+      <p class="lead">A parole, per&ograve;, &egrave; facile. Questa consegna non l'hai mai vista: &egrave; appena
+      &laquo;arrivata sul diario&raquo;. Leggila da autore e <strong>tocca le cinque parole-trappola</strong>
+      che manderebbero Eleonora fuori strada &mdash; ce n'&egrave; una per ognuno dei cinque ingredienti.</p>
+      <div class="caccia-testo" id="cacciaTesto" aria-label="Consegna in cui cercare le cinque trappole"></div>
+      <p class="caccia-prog">Trappole trovate: <strong><span id="cacciaCnt">0</span> su 5</strong></p>
+      <div class="feedback" id="fbCaccia"></div>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:22px">Nero su bianco: le tre domande finali</h3>
       <div class="rifle-grid" style="margin-top:24px">
         <div class="rifle">
           <h3><span class="rn">1</span><span>Che cosa ho capito?</span></h3>
@@ -755,14 +864,15 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <p><strong>Tag:</strong> Comprensione del testo · Scrittura funzionale · Metacognizione · Lessico e ambiguit&agrave;.</p>
     </div>
     <div class="tabpane">
-      <h3>Le sei tappe</h3>
+      <h3>Le sette tappe</h3>
       <ul>
         <li><strong>Il caso</strong> &mdash; il video &egrave; la prima cosa che lo studente incontra; poi la domanda-cornice (&laquo;dove si &egrave; inceppato il meccanismo?&raquo;), lasciata volutamente aperta (effetto Zeigarnik).</li>
         <li><strong>L'indagine</strong> &mdash; le 4 istruzioni analizzate una a una: lo studente individua il tipo di trappola (modo di dire, informazione sottintesa, parola imprecisa, destinazione mancante).</li>
         <li><strong>Gli ingredienti</strong> &mdash; i 5 requisiti di una consegna eseguibile, con confronti ambiguo/chiaro presi dal caso. Chiude con una consegna pratica sul diario.</li>
+        <li><strong>Il banco del traduttore</strong> &mdash; 8 modi di dire d'aula e di casa (&laquo;buttate gi&ugrave; una scaletta&raquo;, &laquo;un lavoro coi fiocchi&raquo;&hellip;) da tradurre in consegne chiare: allenamento mirato sulla trappola pi&ugrave; frequente, con la lettura letterale di Eleonora come pungolo e un aiuto a scomparsa sul significato (utile anche per studenti di madrelingua diversa).</li>
         <li><strong>L'officina</strong> &mdash; riscrittura del messaggio del pap&agrave; con scaffolding e collaudo a 6 controlli.</li>
-        <li><strong>Il laboratorio</strong> &mdash; 10 simulazioni verosimili (casa, scuola, tecnologia): da una consegna ambigua a una consegna chiara, senza scaffolding. Ogni riscrittura passa dal collaudo.</li>
-        <li><strong>Rifletto</strong> &mdash; metacognizione e chiusura dei loop narrativi.</li>
+        <li><strong>Il laboratorio</strong> &mdash; 10 simulazioni verosimili (casa, scuola, tecnologia): da una consegna ambigua a una consegna chiara, senza scaffolding. Ogni riscrittura passa dal collaudo; il <em>radar di Eleonora</em> evidenzia in ambra le parole-spia residue (metti, bene, un po'&hellip;) con una domanda socratica: segnala, non boccia.</li>
+        <li><strong>Rifletto</strong> &mdash; la <em>caccia alla trappola</em> (verifica di transfer: 5 parole-trappola da toccare in una consegna mai vista, una per ingrediente), poi metacognizione e chiusura dei loop narrativi.</li>
       </ul>
       <h3>Valutazione suggerita</h3>
       <ul>
@@ -774,6 +884,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <ul>
         <li>Font ad alta leggibilit&agrave; (Atkinson Hyperlegible 18px, titoli Lexend), feedback mai punitivi (ambra, mai rosso).</li>
         <li>Le scene illustrate permettono di seguire l'indagine anche senza audio; il messaggio del pap&agrave; &egrave; sempre rileggibile in forma scritta.</li>
+        <li>La consegna del pap&agrave; e le consegne del laboratorio si possono <strong>ascoltare ad alta voce</strong> (sintesi vocale in italiano, pulsante altoparlante): un aiuto in pi&ugrave; per studenti con DSA. Se il browser non la supporta, il pulsante si disattiva senza errori.</li>
         <li>Nel laboratorio lo studente sceglie l'ordine e il numero delle simulazioni: il percorso &egrave; naturalmente graduabile.</li>
       </ul>
     </div>
@@ -1108,7 +1219,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
 /* ============================================================
    NAVIGAZIONE A TAPPE
 ============================================================ */
-var SEZIONI = 6;
+var SEZIONI = 7;
 function vaiA(i){
   var k;
   for(k=0;k<SEZIONI;k++){
@@ -1439,13 +1550,56 @@ collegaContatore('txtRiscrivi','cntRiscrivi');
 collegaContatore('txtSim','cntSim');
 
 /* ============================================================
-   TAPPA 4 · OFFICINA (riscrittura del messaggio del papà)
+   IL RADAR DI ELEONORA (parole-spia nel collaudo, non blocca)
+============================================================ */
+var SPIE = [
+  '\\bmett[a-zà-ù]*', '\\bsistem[a-zà-ù]*', '\\bbene(?![a-zà-ù])',
+  '\\bun po[\'’]?(?![a-zà-ù])', '\\btutt[oaie](?![a-zà-ù])',
+  '\\bfuori(?![a-zà-ù])', '\\bl[ìà](?![a-zà-ù])',
+  '\\bocchiat[a-zà-ù]*', 'd[\'’]occhio(?![a-zà-ù])',
+  '\\ble cose(?![a-zà-ù])', '\\bqualcosa(?![a-zà-ù])',
+  '\\brob[ae](?![a-zà-ù])', '\\ba posto(?![a-zà-ù])',
+  '\\bvia(?![a-zà-ù])', '\\bpresto(?![a-zà-ù])'
+];
+var SPIA_RE = new RegExp('(' + SPIE.join('|') + ')', 'gi');
+function escapeHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function radarEleonora(testo, boxEl){
+  var n = 0;
+  var marcato = escapeHtml(testo.trim()).replace(SPIA_RE, function(m){
+    n++;
+    return '<mark class="spy">' + m + '<\/mark>';
+  });
+  if(n === 0){
+    boxEl.className = 'radarbox';
+    boxEl.innerHTML = '';
+    return;
+  }
+  boxEl.className = 'radarbox on';
+  boxEl.innerHTML = '<span class="lab">Il radar di Eleonora<\/span>' +
+    'Il radar ha sentito ' + (n === 1 ? 'una parola-spia' : n + ' parole-spia') +
+    ' &mdash; parole che Eleonora potrebbe capire a modo suo:' +
+    '<div class="eco">' + marcato + '<\/div>' +
+    'Rileggi i punti evidenziati: <strong>sei sicuro che l&igrave; Eleonora capirebbe proprio quello che intendi tu?<\/strong> ' +
+    'Se s&igrave;, va bene cos&igrave;: il radar segnala, non boccia.';
+}
+function radarPulisci(boxEl){
+  boxEl.className = 'radarbox';
+  boxEl.innerHTML = '';
+}
+
+/* ============================================================
+   TAPPA 5 · OFFICINA (riscrittura del messaggio del papà)
 ============================================================ */
 document.getElementById('btnCollaudo').addEventListener('click', function(){
   var ok = valida(document.getElementById('txtRiscrivi'), document.getElementById('valRiscrivi'), 40, 'La riscrittura');
   if(ok){
+    radarEleonora(document.getElementById('txtRiscrivi').value, document.getElementById('radarRiscrivi'));
     document.getElementById('boxCollaudo').classList.add('on');
     document.getElementById('boxCollaudo').scrollIntoView({behavior:'smooth', block:'nearest'});
+  } else {
+    radarPulisci(document.getElementById('radarRiscrivi'));
   }
 });
 [].forEach.call(document.querySelectorAll('.ckc'), function(ck){
@@ -1456,7 +1610,7 @@ document.getElementById('btnCollaudo').addEventListener('click', function(){
     if(tutti.length === fatti.length){
       document.getElementById('badgeCollaudo').classList.add('on');
       document.getElementById('rowAvanti4').style.display = 'flex';
-      segnaCompletata(3);
+      segnaCompletata(4);
     } else {
       document.getElementById('badgeCollaudo').classList.remove('on');
     }
@@ -1470,7 +1624,143 @@ document.getElementById('txtDiario').addEventListener('input', function(){
 });
 
 /* ============================================================
-   TAPPA 5 · LABORATORIO: 10 simulazioni da ambigua a chiara
+   TAPPA 4 · IL BANCO DEL TRADUTTORE (modi di dire → forma chiara)
+============================================================ */
+var MODI = [
+  {chi:'Il prof, durante la verifica', frase:'Tenete d’occhio l’orologio.',
+   lettera:'Vecchia conoscenza: alla lettera è fissare l’orologio. E intanto la verifica resta in bianco.',
+   senso:'Controllare ogni tanto quanto tempo manca, per riuscire a finire in tempo.'},
+  {chi:'La maestra, a inizio attività', frase:'Dai una mano al tuo compagno di banco.',
+   lettera:'Eleonora gli porgerebbe la mano, solenne, come per presentarsi.',
+   senso:'Aiutarlo in qualcosa di concreto: spiegare un passaggio, tenere fermo il foglio.'},
+  {chi:'La prof di italiano', frase:'Buttate giù una scaletta del racconto.',
+   lettera:'Doppio guaio: Eleonora cercherebbe una scaletta vera, e la getterebbe a terra.',
+   senso:'Scrivere in fretta un elenco dei punti principali, nell’ordine in cui verranno raccontati.'},
+  {chi:'Il prof di arte, sul cartellone', frase:'Mi raccomando, un lavoro coi fiocchi.',
+   lettera:'Eleonora attaccherebbe fiocchi regalo agli angoli del cartellone. Bellissimo. Sbagliato.',
+   senso:'Un lavoro molto curato: completo, ordinato, senza errori.'},
+  {chi:'L’insegnante, col compagno appena arrivato', frase:'Rompete il ghiaccio con una domanda.',
+   lettera:'In aula non c’è ghiaccio: Eleonora andrebbe a cercarlo nel congelatore della mensa.',
+   senso:'Superare l’imbarazzo del primo momento: iniziare a parlarsi, per esempio con una domanda semplice.'},
+  {chi:'La prof, prima del dibattito', frase:'Mettete nero su bianco le vostre idee.',
+   lettera:'Un foglio bianco, tutto colorato di nero. Le idee, però, dove sono?',
+   senso:'Scrivere le proprie idee su un foglio, così non si perdono e si possono rileggere.'},
+  {chi:'Il capogruppo del progetto', frase:'Facciamo il punto della situazione.',
+   lettera:'Eleonora disegnerebbe un punto. Grande, per sicurezza.',
+   senso:'Fermarsi a controllare insieme che cosa è già fatto e che cosa manca ancora.'},
+  {chi:'Il prof, sulla risposta aperta', frase:'Andate al sodo.',
+   lettera:'«Al sodo»… dove? Eleonora penserebbe all’uovo. E non avrebbe tutti i torti.',
+   senso:'Dire subito la cosa più importante, senza giri di parole.'}
+];
+(function(){
+  var lista = document.getElementById('dizLista');
+  var stato = MODI.map(function(){ return {testo:'', fatta:false}; });
+  document.getElementById('dizTot').textContent = MODI.length;
+
+  function aggiorna(){
+    var fatte = stato.filter(function(s){ return s.fatta; }).length;
+    document.getElementById('dizFatte').textContent = fatte;
+    document.getElementById('dizBarra').style.width = (fatte/MODI.length*100) + '%';
+    if(fatte >= 4){
+      document.getElementById('rowAvantiDiz').style.display = 'flex';
+      segnaCompletata(3);
+    }
+    if(fatte === MODI.length){
+      document.getElementById('badgeDiz').classList.add('on');
+    }
+  }
+
+  MODI.forEach(function(m, i){
+    var box = document.createElement('div');
+    box.className = 'voce';
+
+    var dove = document.createElement('span');
+    dove.className = 'sim-dove';
+    dove.textContent = m.chi;
+    box.appendChild(dove);
+
+    var riga = document.createElement('div');
+    riga.style.cssText = 'display:flex;align-items:flex-start;gap:10px';
+    var bq = document.createElement('blockquote');
+    bq.className = 'sim-amb';
+    bq.style.flex = '1 1 auto';
+    bq.textContent = '«' + m.frase + '»';
+    riga.appendChild(bq);
+    var say = document.createElement('button');
+    say.type = 'button';
+    say.className = 'say';
+    say.setAttribute('data-say', m.frase);
+    say.setAttribute('aria-label', 'Ascolta il modo di dire');
+    say.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7 7 0 0 1 0 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><\/svg>';
+    riga.appendChild(say);
+    box.appendChild(riga);
+
+    var storto = document.createElement('div');
+    storto.className = 'sim-storto';
+    storto.innerHTML = '<span class="lab">Come lo capirebbe Eleonora<\/span>' + m.lettera;
+    box.appendChild(storto);
+
+    var hint = document.createElement('button');
+    hint.type = 'button';
+    hint.className = 'btn-hint';
+    hint.textContent = 'Che cosa intende davvero chi lo dice?';
+    var rev = document.createElement('div');
+    rev.className = 'reveal-papa';
+    rev.style.margin = '0 0 10px';
+    rev.innerHTML = '<span class="lab">Che cosa intende<\/span>' + m.senso + ' Ora scrivilo come una consegna: verbo concreto, gesto preciso.';
+    hint.addEventListener('click', function(){ rev.classList.add('on'); hint.style.display = 'none'; });
+    box.appendChild(hint);
+    box.appendChild(rev);
+
+    var ta = document.createElement('textarea');
+    ta.rows = 3;
+    ta.placeholder = 'La stessa richiesta, ma chiara: che cosa bisogna fare, come, con quale risultato?';
+    ta.addEventListener('input', function(){ stato[i].testo = ta.value; });
+    box.appendChild(ta);
+
+    var val = document.createElement('div');
+    val.className = 'valbox';
+    box.appendChild(val);
+    var radar = document.createElement('div');
+    radar.className = 'radarbox';
+    box.appendChild(radar);
+    var fb = document.createElement('div');
+    fb.className = 'feedback';
+    box.appendChild(fb);
+
+    var row = document.createElement('div');
+    row.className = 'btnrow';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-pri';
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 5.9L3 18v3h3l5.8-5.7a4.5 4.5 0 0 0 5.9-6l-3.2 3.2-2.5-.5-.5-2.5Z"/><\/svg><span>Collauda la traduzione<\/span>';
+    btn.addEventListener('click', function(){
+      stato[i].testo = ta.value;
+      var ok = valida(ta, val, 5, 'La traduzione');
+      if(!ok){ fb.className = 'feedback'; fb.innerHTML = ''; radarPulisci(radar); return; }
+      radarEleonora(ta.value, radar);
+      stato[i].fatta = true;
+      box.classList.add('fatta');
+      fb.className = 'feedback on verde';
+      fb.innerHTML = '<span class="fb-lab">Tradotta<\/span>Da indovinello a consegna. Rileggila un&rsquo;ultima volta: il gesto c&rsquo;&egrave;? Si capisce quando &egrave; fatta bene? Se s&igrave;, passa alla prossima.';
+      aggiorna();
+    });
+    row.appendChild(btn);
+    var chip = document.createElement('span');
+    chip.className = 'fatta-chip';
+    chip.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px" aria-hidden="true"><path d="M4 12l6 6L20 6"/><\/svg><span>Tradotto<\/span>';
+    row.appendChild(chip);
+    box.appendChild(row);
+
+    lista.appendChild(box);
+  });
+
+  window.__dizStato = function(){ return stato; };
+  window.__dizModi = MODI;
+})();
+
+/* ============================================================
+   TAPPA 6 · LABORATORIO: 10 simulazioni da ambigua a chiara
 ============================================================ */
 var SIMS = [
   {luogo:'Casa', short:'La camera', chi:'Il pap&agrave;, uscendo di corsa', amb:'Sistema la tua camera.',
@@ -1491,18 +1781,18 @@ var SIMS = [
   {luogo:'Scuola', short:'Il cartellone', chi:'Il prof, al gruppo di lavoro', amb:'Fate un cartellone sull&rsquo;energia.',
    storto:'Un cartellone bellissimo&hellip; grande come una cartolina, senza titolo e con una figura sola. Nessuno aveva detto il contrario.',
    focus:'Oggetto definito · Modo · Risultato atteso'},
-  {luogo:'Scuola', short:'Gli iPad del carrello', chi:'L&rsquo;insegnante di laboratorio', amb:'Riordinate gli iPad del carrello.',
-   storto:'Eleonora li impilerebbe in una torre perfetta: ordinatissima, tutta scarica, e senza un cavo al suo posto.',
+  {luogo:'Scuola', short:'L&rsquo;iPad pronto', chi:'L&rsquo;insegnante, all&rsquo;inizio dell&rsquo;ora', amb:'Preparate l&rsquo;iPad per la lezione.',
+   storto:'Eleonora lo appoggerebbe sul banco, spento, con la custodia chiusa: eccolo, &laquo;preparato&raquo;. Acceso? Carico? Con l&rsquo;app giusta aperta? Mistero.',
    focus:'Modo · Risultato atteso'},
-  {luogo:'Tecnologia', short:'Salva e manda', chi:'La prof di lettere', amb:'Salva il documento e mandamelo.',
-   storto:'Salvato &laquo;da qualche parte&raquo; col nome Documento1, e mai arrivato: &laquo;mandamelo&raquo; non dice dove n&eacute; come.',
-   focus:'Modo · Oggetto definito · Risultato atteso'},
-  {luogo:'Tecnologia', short:'La ricerca sul Po', chi:'Compito per casa', amb:'Cerca informazioni sul fiume Po.',
-   storto:'Primo sito trovato, copia-incolla di tutto, chiuso. Informazioni cercate: vero. Utili: chiss&agrave;.',
-   focus:'Modo · Oggetto definito · Risultato atteso'},
-  {luogo:'Tecnologia', short:'La foto del progetto', chi:'Il prof di tecnologia', amb:'Fai una bella foto al tuo progetto e caricala.',
-   storto:'Una foto sfocata del banco (il progetto c&rsquo;&egrave;, in un angolo), caricata chiss&agrave; dove col nome IMG_0001.',
-   focus:'Modo · Risultato atteso'}
+  {luogo:'Tecnologia', short:'Taglia e incolla', chi:'La prof, correggendo il tuo documento', amb:'Taglia l&rsquo;ultima frase e incollala all&rsquo;inizio.',
+   storto:'Eleonora cercherebbe forbici e colla nell&rsquo;astuccio: nessuno le ha detto che qui &laquo;taglia&raquo; e &laquo;incolla&raquo; sono due comandi del menu, non due gesti delle mani.',
+   focus:'Azione precisa · Modo e strumenti · Ordine'},
+  {luogo:'Tecnologia', short:'Copia il testo', chi:'La prof, indicando la LIM', amb:'Copiate il testo sulla vostra pagina.',
+   storto:'Met&agrave; classe lo ricopierebbe a mano parola per parola in mezz&rsquo;ora, l&rsquo;altra met&agrave; farebbe copia-incolla in tre secondi: stessa consegna, due lavori diversi.',
+   focus:'Azione precisa · Modo e strumenti · Risultato atteso'},
+  {luogo:'Tecnologia', short:'Chiudi tutto', chi:'L&rsquo;insegnante, a fine attivit&agrave;', amb:'Avete finito: chiudete tutto e mettete via.',
+   storto:'Eleonora chiuderebbe di scatto la custodia dell&rsquo;iPad: documento non salvato, dieci app aperte, schermo acceso nello zaino. &laquo;Chiuso&raquo; tutto, in effetti.',
+   focus:'Azione precisa · Ordine e tempo · Risultato atteso'}
 ];
 
 (function(){
@@ -1547,6 +1837,7 @@ var SIMS = [
     txt.value = stato[i].testo;
     document.getElementById('cntSim').textContent = paroleDi(txt.value).length;
     val.className = 'valbox'; val.innerHTML = '';
+    radarPulisci(document.getElementById('radarSim'));
     if(stato[i].fatta){
       fb.className = 'feedback on verde';
       fb.innerHTML = '<span class="fb-lab">Collaudata<\/span>Questa consegna &egrave; gi&agrave; passata dal collaudo. Puoi ancora migliorarla e ricollaudarla.';
@@ -1562,7 +1853,7 @@ var SIMS = [
     document.getElementById('labBarra').style.width = (fatte/SIMS.length*100) + '%';
     if(fatte >= 3){
       document.getElementById('rowAvanti5').style.display = 'flex';
-      segnaCompletata(4);
+      segnaCompletata(5);
     }
     if(fatte === SIMS.length){
       document.getElementById('badgeLab').classList.add('on');
@@ -1572,7 +1863,8 @@ var SIMS = [
   document.getElementById('btnSim').addEventListener('click', function(){
     salvaCorrente();
     var ok = valida(txt, val, 20, 'La riscrittura');
-    if(!ok){ fb.className='feedback'; fb.innerHTML=''; return; }
+    if(!ok){ fb.className='feedback'; fb.innerHTML=''; radarPulisci(document.getElementById('radarSim')); return; }
+    radarEleonora(txt.value, document.getElementById('radarSim'));
     stato[attiva].fatta = true;
     bottoni[attiva].classList.add('fatta');
     fb.className = 'feedback on verde';
@@ -1590,7 +1882,7 @@ var SIMS = [
 })();
 
 /* ============================================================
-   TAPPA 6 · COPIA IL QUADERNO
+   TAPPA 7 · COPIA IL QUADERNO
 ============================================================ */
 document.getElementById('btnCopia').addEventListener('click', function(){
   var r = [];
@@ -1599,17 +1891,32 @@ document.getElementById('btnCopia').addEventListener('click', function(){
   r.push('— La consegna che ho valutato sul diario —');
   r.push(document.getElementById('txtDiario').value.trim() || '(non compilato)');
   r.push('');
+  r.push('— Il banco del traduttore · I modi di dire chiariti da me —');
+  var diz = window.__dizStato ? window.__dizStato() : [];
+  var almenoUnaTrad = false;
+  diz.forEach(function(d, i){
+    if(d.testo.trim()){
+      almenoUnaTrad = true;
+      r.push((i+1) + '. «' + window.__dizModi[i].frase + '» → ' + d.testo.trim().replace(/\n/g, ' '));
+    }
+  });
+  if(!almenoUnaTrad) r.push('(nessuna traduzione ancora)');
+  r.push('');
   r.push('— Officina · Il messaggio del papà riscritto da me —');
   r.push(document.getElementById('txtRiscrivi').value.trim() || '(non compilato)');
   r.push('');
   r.push('— Laboratorio · Le mie riscritture —');
   var stato = window.__labStato ? window.__labStato() : [];
   var almenoUna = false;
+  function decodifica(s){
+    return s.replace(/&rsquo;/g,'’').replace(/&agrave;/g,'à').replace(/&egrave;/g,'è')
+            .replace(/&eacute;/g,'é').replace(/&igrave;/g,'ì').replace(/&ograve;/g,'ò')
+            .replace(/&ugrave;/g,'ù').replace(/&laquo;/g,'«').replace(/&raquo;/g,'»');
+  }
   stato.forEach(function(s, i){
     if(s.testo.trim()){
       almenoUna = true;
-      var titolo = window.__labSims[i].short.replace(/&rsquo;/g, '’');
-      r.push((i+1) + '. ' + titolo + ' — da: «' + window.__labSims[i].amb + '»');
+      r.push((i+1) + '. ' + decodifica(window.__labSims[i].short) + ' — da: «' + decodifica(window.__labSims[i].amb) + '»');
       r.push('   ' + s.testo.trim().replace(/\n/g, '\n   '));
     }
   });
@@ -1623,7 +1930,7 @@ document.getElementById('btnCopia').addEventListener('click', function(){
 
   function fatto(){
     document.getElementById('msgCopiato').classList.add('on');
-    segnaCompletata(5);
+    segnaCompletata(6);
   }
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(testo).then(fatto, function(){ copiaFallback(testo); fatto(); });
@@ -1641,6 +1948,124 @@ function copiaFallback(testo){
   try{ document.execCommand('copy'); }catch(e){}
   document.body.removeChild(ta);
 }
+
+/* ============================================================
+   TAPPA 7 · CACCIA ALLA TRAPPOLA (hot text: verifica di transfer)
+============================================================ */
+var CACCIA = [
+  {t:'Per la prossima volta', trap:'Ordine e tempo',
+   why:'&laquo;La prossima volta&raquo; non &egrave; una data: la prossima lezione? domani? fra una settimana? Chi legge sceglie a caso. Il tempo va detto: &laquo;per venerd&igrave; 10&raquo;.'},
+  {t:'sistemate', trap:'Azione precisa',
+   why:'&laquo;Sistemate&raquo; non dice il gesto: riordinare i fogli? ricopiarli in bella? completare le parti mancanti? Serve un verbo concreto.'},
+  {t:'gli appunti'},
+  {t:'di scienze,'},
+  {t:'date un’occhiata', trap:'Modo e strumenti',
+   why:'Modo di dire, vecchia conoscenza: alla lettera &egrave; solo guardare. Eleonora aprirebbe il capitolo e&hellip; lo guarderebbe. Che cosa bisogna fare, esattamente?'},
+  {t:'al capitolo 4,'},
+  {t:'portate'},
+  {t:'il materiale', trap:'Oggetto definito',
+   why:'&laquo;Il materiale&raquo; &egrave; un oggetto senza contorni: una matita &egrave; materiale anche lei. Quale materiale, esattamente? Righello? Colori? Forbici?'},
+  {t:'e'},
+  {t:'scrivete'},
+  {t:'uno schema'},
+  {t:'fatto bene.', trap:'Risultato atteso',
+   why:'&laquo;Fatto bene&raquo; per chi? Senza il risultato atteso (quante voci, che cosa deve contenere) ognuno ha il suo &laquo;bene&raquo;. Come il &laquo;dai un’occhiata&raquo; del pap&agrave;.'}
+];
+(function(){
+  var cont = document.getElementById('cacciaTesto');
+  var cnt = document.getElementById('cacciaCnt');
+  var fb = document.getElementById('fbCaccia');
+  var totale = CACCIA.filter(function(x){ return x.trap; }).length;
+  var trovate = 0;
+
+  cont.appendChild(document.createTextNode('«'));
+  CACCIA.forEach(function(tok, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'hot';
+    b.textContent = tok.t;
+    b.addEventListener('click', function(){
+      if(tok.trap){
+        if(b.classList.contains('trovata')) return;
+        b.classList.add('trovata');
+        trovate++;
+        cnt.textContent = trovate;
+        if(trovate < totale){
+          fb.className = 'feedback on verde';
+          fb.innerHTML = '<span class="fb-lab">Trappola scovata (' + trovate + ' su ' + totale + '): ' + tok.trap + '<\/span>' + tok.why;
+        } else {
+          fb.className = 'feedback on verde';
+          fb.innerHTML = '<span class="fb-lab">Cinque su cinque: lettura da autore<\/span>' +
+            tok.why + '<br><br><strong>La caccia &egrave; chiusa.<\/strong> Hai letto una consegna mai vista e le trappole ' +
+            'le hai viste <em>prima<\/em> di caderci: &egrave; esattamente quello che ti succeder&agrave; d’ora in poi, ' +
+            'senza nemmeno accorgertene. Ora s&igrave; che puoi mettere nero su bianco, qui sotto.';
+        }
+      } else {
+        b.classList.remove('err');
+        void b.offsetWidth;
+        b.classList.add('err');
+        fb.className = 'feedback on ambra';
+        fb.innerHTML = '<span class="fb-lab">Questa regge<\/span>&laquo;' + tok.t.replace(/[.,]$/,'') +
+          '&raquo; dice qualcosa che Eleonora capirebbe al primo colpo. Le trappole sono altrove: cerca le parole che si possono leggere in due modi.';
+      }
+    });
+    cont.appendChild(b);
+    if(i < CACCIA.length - 1) cont.appendChild(document.createTextNode(' '));
+  });
+  cont.appendChild(document.createTextNode('»'));
+})();
+
+/* ============================================================
+   LETTURA AD ALTA VOCE (Web Speech API, degradazione elegante)
+============================================================ */
+(function(){
+  var synth = window.speechSynthesis;
+  var supportata = !!synth && typeof window.SpeechSynthesisUtterance === 'function';
+  var voce = null;
+  function scegliVoce(){
+    var vs = synth.getVoices() || [];
+    voce = vs.filter(function(v){ return /^it(-|_|$)/i.test(v.lang); })
+             .sort(function(a,b){ return (/it-IT/i.test(b.lang)?1:0) - (/it-IT/i.test(a.lang)?1:0); })[0] || null;
+  }
+  if(supportata){
+    scegliVoce();
+    if(synth.onvoiceschanged !== undefined) synth.addEventListener('voiceschanged', scegliVoce);
+  } else {
+    [].forEach.call(document.querySelectorAll('.say'), function(b){
+      b.disabled = true;
+      b.title = 'Lettura ad alta voce non disponibile su questo browser';
+    });
+  }
+  function leggi(testo, btn){
+    if(!supportata || !testo) return;
+    if(btn.classList.contains('speaking')){
+      synth.cancel();
+      btn.classList.remove('speaking');
+      return;
+    }
+    synth.cancel();
+    [].forEach.call(document.querySelectorAll('.say.speaking'), function(b){ b.classList.remove('speaking'); });
+    var u = new SpeechSynthesisUtterance(testo);
+    u.lang = (voce && voce.lang) || 'it-IT';
+    if(voce) u.voice = voce;
+    u.rate = 0.95;
+    u.onstart = function(){ btn.classList.add('speaking'); };
+    u.onend = u.onerror = function(){ btn.classList.remove('speaking'); };
+    synth.speak(u);
+  }
+  var bPapa = document.getElementById('sayPapa');
+  bPapa.addEventListener('click', function(){
+    var em = bPapa.closest('.msgbubble').querySelector('em');
+    leggi(em ? em.textContent : '', bPapa);
+  });
+  var bSim = document.getElementById('saySim');
+  bSim.addEventListener('click', function(){
+    leggi(document.getElementById('simAmb').textContent, bSim);
+  });
+  [].forEach.call(document.querySelectorAll('.say[data-say]'), function(b){
+    b.addEventListener('click', function(){ leggi(b.getAttribute('data-say'), b); });
+  });
+})();
 
 /* ============================================================
    MODAL DOCENTI
