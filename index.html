@@ -325,6 +325,11 @@ input[type=text]{width:100%;font-family:var(--body);font-size:18px;color:var(--t
 .voce .fatta-chip{display:none;align-items:center;gap:6px;color:var(--ok);font-family:var(--head);
   font-weight:700;font-size:14px}
 .voce.fatta .fatta-chip{display:inline-flex}
+.diz-gruppo{display:flex;align-items:center;gap:9px;font-family:var(--head);font-weight:700;font-size:15px;
+  letter-spacing:.5px;text-transform:uppercase;color:var(--accD);margin:22px 0 8px;padding-bottom:6px;
+  border-bottom:2px solid var(--accL)}
+.diz-gruppo:first-child{margin-top:2px}
+.diz-gruppo svg{width:19px;height:19px;flex:0 0 auto}
 
 /* ---------- radar di Eleonora ---------- */
 .radarbox{display:none;border-radius:12px;padding:13px 17px;margin-top:10px;font-size:16.5px;
@@ -664,10 +669,11 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
   <div class="wrap">
     <div class="card">
       <h2 class="titolone">Il banco del traduttore</h2>
-      <p class="lead">L'indagine ha svelato il trucco preferito delle trappole: il <strong>modo di dire</strong>.
-      Funziona solo se chi ascolta conosce gi&agrave; il significato nascosto; preso alla lettera, combina disastri.
-      Su questo banco ne arrivano <strong>otto</strong>, sentiti davvero tra scuola e casa. Il tuo compito:
-      <strong>tradurli in consegne chiare</strong>, che anche Eleonora eseguirebbe al primo colpo.
+      <p class="lead">L'indagine ha svelato il trucco preferito delle trappole: la <strong>parola a doppio senso</strong>.
+      Funziona solo se chi ascolta conosce gi&agrave; il significato nascosto; presa alla lettera, combina disastri.
+      Su questo banco ne arriva una fila: prima i <strong>modi di dire</strong> di tutti i giorni, poi le parole che
+      <strong>con la tecnologia</strong> cambiano significato (&laquo;apri la finestra&raquo;, &laquo;salva il documento&raquo;&hellip;).
+      Il tuo compito: <strong>tradurle in consegne chiare</strong>, che anche Eleonora eseguirebbe al primo colpo.
       Usa verbi concreti e di' che cosa deve succedere davvero.</p>
 
       <div class="lab-prog">
@@ -975,7 +981,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         <li><strong>Il caso</strong> &mdash; il video &egrave; la prima cosa che lo studente incontra; poi la domanda-cornice (&laquo;dove si &egrave; inceppato il meccanismo?&raquo;), lasciata volutamente aperta (effetto Zeigarnik).</li>
         <li><strong>L'indagine</strong> &mdash; le 4 istruzioni analizzate una a una: lo studente individua il tipo di trappola (modo di dire, informazione sottintesa, parola imprecisa, destinazione mancante).</li>
         <li><strong>Gli ingredienti</strong> &mdash; i 5 requisiti di una consegna eseguibile, con confronti ambiguo/chiaro presi dal caso. Chiude con una consegna pratica sul diario.</li>
-        <li><strong>Il banco del traduttore</strong> &mdash; 8 modi di dire d'aula e di casa (&laquo;buttate gi&ugrave; una scaletta&raquo;, &laquo;un lavoro coi fiocchi&raquo;&hellip;) da tradurre in consegne chiare: allenamento mirato sulla trappola pi&ugrave; frequente, con la lettura letterale di Eleonora come pungolo e un aiuto a scomparsa sul significato (utile anche per studenti di madrelingua diversa).</li>
+        <li><strong>Il banco del traduttore</strong> &mdash; frasi a doppio senso da tradurre in consegne chiare, in due gruppi: <em>modi di dire</em> d'aula e di casa (&laquo;buttate gi&ugrave; una scaletta&raquo;, &laquo;un lavoro coi fiocchi&raquo;&hellip;) e <em>parole della tecnologia</em> che nel linguaggio comune significano altro (&laquo;apri la finestra&raquo;, &laquo;salva&raquo;, &laquo;cartella&raquo;, &laquo;scrivania&raquo;&hellip;). Allenamento mirato sulla trappola pi&ugrave; frequente, con la lettura letterale di Eleonora come pungolo e un aiuto a scomparsa sul significato (utile anche per studenti di madrelingua diversa e per il lessico digitale).</li>
         <li><strong>L'officina</strong> &mdash; riscrittura del messaggio del pap&agrave; con scaffolding e collaudo a 6 controlli.</li>
         <li><strong>Il laboratorio</strong> &mdash; 10 simulazioni verosimili (casa, scuola, tecnologia): da una consegna ambigua a una consegna chiara, senza scaffolding. Ogni riscrittura passa dal collaudo; il <em>radar di Eleonora</em> evidenzia in ambra le parole-spia residue (metti, bene, un po'&hellip;) con una domanda socratica: segnala, non boccia.</li>
         <li><strong>Rifletto</strong> &mdash; la <em>caccia alla trappola</em> (verifica di transfer: 5 parole-trappola da toccare in una consegna mai vista, una per ingrediente), poi metacognizione e chiusura dei loop narrativi.</li>
@@ -1452,30 +1458,52 @@ document.getElementById('txtDiario').addEventListener('input', function(){
    TAPPA 4 · IL BANCO DEL TRADUTTORE (modi di dire → forma chiara)
 ============================================================ */
 var MODI = [
-  {chi:'Il prof, durante la verifica', frase:'Tenete d’occhio l’orologio.',
+  {gruppo:'Modi di dire', chi:'Il prof, durante la verifica', frase:'Tenete d’occhio l’orologio.',
    lettera:'Vecchia conoscenza: alla lettera è fissare l’orologio. E intanto la verifica resta in bianco.',
    senso:'Controllare ogni tanto quanto tempo manca, per riuscire a finire in tempo.'},
-  {chi:'La maestra, a inizio attività', frase:'Dai una mano al tuo compagno di banco.',
+  {gruppo:'Modi di dire', chi:'La maestra, a inizio attività', frase:'Dai una mano al tuo compagno di banco.',
    lettera:'Eleonora gli porgerebbe la mano, solenne, come per presentarsi.',
    senso:'Aiutarlo in qualcosa di concreto: spiegare un passaggio, tenere fermo il foglio.'},
-  {chi:'La prof di italiano', frase:'Buttate giù una scaletta del racconto.',
+  {gruppo:'Modi di dire', chi:'La prof di italiano', frase:'Buttate giù una scaletta del racconto.',
    lettera:'Doppio guaio: Eleonora cercherebbe una scaletta vera, e la getterebbe a terra.',
    senso:'Scrivere in fretta un elenco dei punti principali, nell’ordine in cui verranno raccontati.'},
-  {chi:'Il prof di arte, sul cartellone', frase:'Mi raccomando, un lavoro coi fiocchi.',
+  {gruppo:'Modi di dire', chi:'Il prof di arte, sul cartellone', frase:'Mi raccomando, un lavoro coi fiocchi.',
    lettera:'Eleonora attaccherebbe fiocchi regalo agli angoli del cartellone. Bellissimo. Sbagliato.',
    senso:'Un lavoro molto curato: completo, ordinato, senza errori.'},
-  {chi:'L’insegnante, col compagno appena arrivato', frase:'Rompete il ghiaccio con una domanda.',
+  {gruppo:'Modi di dire', chi:'L’insegnante, col compagno appena arrivato', frase:'Rompete il ghiaccio con una domanda.',
    lettera:'In aula non c’è ghiaccio: Eleonora andrebbe a cercarlo nel congelatore della mensa.',
    senso:'Superare l’imbarazzo del primo momento: iniziare a parlarsi, per esempio con una domanda semplice.'},
-  {chi:'La prof, prima del dibattito', frase:'Mettete nero su bianco le vostre idee.',
+  {gruppo:'Modi di dire', chi:'La prof, prima del dibattito', frase:'Mettete nero su bianco le vostre idee.',
    lettera:'Un foglio bianco, tutto colorato di nero. Le idee, però, dove sono?',
    senso:'Scrivere le proprie idee su un foglio, così non si perdono e si possono rileggere.'},
-  {chi:'Il capogruppo del progetto', frase:'Facciamo il punto della situazione.',
+  {gruppo:'Modi di dire', chi:'Il capogruppo del progetto', frase:'Facciamo il punto della situazione.',
    lettera:'Eleonora disegnerebbe un punto. Grande, per sicurezza.',
    senso:'Fermarsi a controllare insieme che cosa è già fatto e che cosa manca ancora.'},
-  {chi:'Il prof, sulla risposta aperta', frase:'Andate al sodo.',
+  {gruppo:'Modi di dire', chi:'Il prof, sulla risposta aperta', frase:'Andate al sodo.',
    lettera:'«Al sodo»… dove? Eleonora penserebbe all’uovo. E non avrebbe tutti i torti.',
-   senso:'Dire subito la cosa più importante, senza giri di parole.'}
+   senso:'Dire subito la cosa più importante, senza giri di parole.'},
+
+  {gruppo:'Con la tecnologia', chi:'Il prof di informatica, davanti al computer', frase:'Apri la finestra.',
+   lettera:'Eleonora si alzerebbe e spalancherebbe la finestra dell’aula, per far entrare un po’ d’aria.',
+   senso:'Al computer «finestra» è un riquadro sullo schermo: qui vuol dire aprire la finestra (o la cartella) indicata, cliccandoci sopra.'},
+  {gruppo:'Con la tecnologia', chi:'L’insegnante, a fine lezione', frase:'Esci dal programma.',
+   lettera:'«Programma»? Eleonora penserebbe a quello della TV, o si alzerebbe per uscire dall’aula.',
+   senso:'«Programma» è l’applicazione aperta sull’iPad: qui vuol dire chiuderla e tornare alla schermata iniziale.'},
+  {gruppo:'Con la tecnologia', chi:'La prof, mentre scrivi al computer', frase:'Salva il documento.',
+   lettera:'«Salva»? Eleonora afferrerebbe il foglio come per metterlo in salvo da un pericolo.',
+   senso:'Al computer «salvare» è registrare il file in memoria con il comando Salva, così il lavoro non va perso.'},
+  {gruppo:'Con la tecnologia', chi:'Il prof, sistemando l’iPad', frase:'Metti il file nella cartella.',
+   lettera:'«Cartella»? Eleonora tirerebbe fuori la cartella di scuola e proverebbe a infilarci dentro qualcosa.',
+   senso:'Al computer la «cartella» è un contenitore sullo schermo: qui vuol dire spostare il file dentro quella cartella, trascinandolo con il dito.'},
+  {gruppo:'Con la tecnologia', chi:'L’insegnante, indicando lo schermo', frase:'Torna alla scrivania.',
+   lettera:'Eleonora si guarderebbe intorno in cerca di un banco o di una scrivania vera dove sedersi.',
+   senso:'La «scrivania» del computer è la schermata principale con le icone: qui vuol dire tornare a quella schermata.'},
+  {gruppo:'Con la tecnologia', chi:'La prof, sul sito della classe', frase:'Aggiorna la pagina.',
+   lettera:'«Pagina»? Eleonora girerebbe il foglio del quaderno, o cancellerebbe tutto per riscriverlo.',
+   senso:'Sul web «aggiornare la pagina» è ricaricarla con l’apposito comando, per vederla con le ultime novità.'},
+  {gruppo:'Con la tecnologia', chi:'Il prof, cercando un sito', frase:'Naviga fino al sito della scuola.',
+   lettera:'«Naviga»? Eleonora penserebbe a barche, mare e salvagente. Ma il computer è sul banco.',
+   senso:'In rete «navigare» è spostarsi tra i siti: qui vuol dire raggiungere il sito della scuola scrivendone o cercandone l’indirizzo.'}
 ];
 (function(){
   var lista = document.getElementById('dizLista');
@@ -1495,7 +1523,18 @@ var MODI = [
     }
   }
 
+  var ICON_MODI = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4Z"/><\/svg>';
+  var ICON_TECH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><\/svg>';
+  var gruppoCorr = '';
+
   MODI.forEach(function(m, i){
+    if(m.gruppo && m.gruppo !== gruppoCorr){
+      gruppoCorr = m.gruppo;
+      var h = document.createElement('div');
+      h.className = 'diz-gruppo';
+      h.innerHTML = (m.gruppo === 'Con la tecnologia' ? ICON_TECH : ICON_MODI) + '<span>' + m.gruppo + '<\/span>';
+      lista.appendChild(h);
+    }
     var box = document.createElement('div');
     box.className = 'voce';
 
@@ -1515,7 +1554,7 @@ var MODI = [
     say.type = 'button';
     say.className = 'say';
     say.setAttribute('data-say', m.frase);
-    say.setAttribute('aria-label', 'Ascolta il modo di dire');
+    say.setAttribute('aria-label', 'Ascolta la frase letta ad alta voce');
     say.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h3.5L13 19V5L7.5 9H4Z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7 7 0 0 1 0 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><\/svg>';
     riga.appendChild(say);
     box.appendChild(riga);
@@ -1718,7 +1757,7 @@ document.getElementById('btnCopia').addEventListener('click', function(){
   r.push('— La consegna che ho valutato sul diario —');
   r.push(document.getElementById('txtDiario').value.trim() || '(non compilato)');
   r.push('');
-  r.push('— Il banco del traduttore · I modi di dire chiariti da me —');
+  r.push('— Il banco del traduttore · Le frasi a doppio senso chiarite da me —');
   var diz = window.__dizStato ? window.__dizStato() : [];
   var almenoUnaTrad = false;
   diz.forEach(function(d, i){
