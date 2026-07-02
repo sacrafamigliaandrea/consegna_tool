@@ -370,6 +370,64 @@ input[type=text]{width:100%;font-family:var(--body);font-size:18px;color:var(--t
 .check-verdetto .lab{font-family:var(--head);font-weight:700;font-size:14px;text-transform:uppercase;
   letter-spacing:.4px;display:block;margin-bottom:4px;color:var(--gold)}
 
+/* ---------- la sfida (test delle istruzioni) ---------- */
+.consegna-box{border:2px solid var(--pri2);border-radius:16px;overflow:hidden;margin-top:20px;background:var(--card)}
+.consegna-head{display:flex;align-items:center;gap:10px;background:var(--pri);color:#fff;
+  font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.3px;padding:12px 18px}
+.consegna-head svg{width:20px;height:20px;flex:0 0 auto}
+.consegna-lista{margin:0;padding:14px 20px 16px 44px;font-size:16.5px;line-height:1.55}
+.consegna-lista li{margin:6px 0;padding-left:4px}
+.consegna-lista li::marker{font-family:var(--head);font-weight:700;color:var(--pri)}
+.consegna-lista li.chiave{color:var(--accD);font-weight:700}
+
+.foglio{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:14px}
+@media(max-width:820px){.foglio{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.foglio{grid-template-columns:1fr}}
+.fbox{position:relative;border:1.5px solid var(--brd2);border-radius:12px;padding:26px 14px 14px;
+  background:#FFFEFA;min-height:96px;display:flex;flex-direction:column;gap:8px}
+.fbox .flet{position:absolute;top:7px;right:11px;font-family:var(--head);font-weight:700;font-size:13px;color:var(--acc)}
+.fbox .fq{font-size:14.5px;color:var(--muted);line-height:1.4}
+.fbox.col-6{grid-column:span 6}
+.fbox.col-4{grid-column:span 4}
+.fbox.col-3{grid-column:span 3}
+.fbox.col-2{grid-column:span 2}
+@media(max-width:820px){.fbox.col-6,.fbox.col-4,.fbox.col-3{grid-column:span 2}.fbox.col-2{grid-column:span 1}}
+@media(max-width:480px){.fbox.col-6,.fbox.col-4,.fbox.col-3,.fbox.col-2{grid-column:span 1}}
+.fbox input[type=text]{font-size:16px;padding:8px 11px}
+.fbox .storia{font-size:15.5px;line-height:1.6;color:var(--text)}
+.fbox .storia .amb{cursor:pointer;border-bottom:2px dashed transparent;border-radius:4px;padding:0 2px}
+.fbox .storia .amb:hover{background:var(--priL)}
+.fbox .storia .amb.sott{background:var(--accL);border-bottom-color:var(--acc);color:var(--accD);font-weight:700}
+.opzrow{display:flex;flex-wrap:wrap;gap:8px}
+.opz{border:1.5px solid var(--brd2);background:var(--card);border-radius:999px;padding:7px 15px;
+  font-family:var(--body);font-size:15.5px;cursor:pointer;transition:.15s;position:relative}
+.opz:hover{border-color:var(--pri2)}
+.opz.sel{border-color:var(--acc);background:var(--accL);color:var(--accD);font-weight:700}
+.opz.segnata{border-color:var(--acc);background:var(--accL);color:var(--accD);text-decoration:line-through}
+.miniop{display:flex;align-items:center;gap:8px}
+.miniop input[type=text]{width:74px;text-align:center}
+.miniop .segno{font-family:var(--head);font-weight:700;color:var(--muted);font-size:15px}
+.wheel-svg{width:100%;max-width:150px;height:auto;margin:0 auto;display:block}
+.wheel-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.wheel-inputs .miniop input{width:100%}
+.triangolo,.sole-box{cursor:pointer;display:flex;align-items:center;justify-content:center;min-height:70px}
+.triangolo svg,.sole-box svg{width:76px;height:76px}
+.parola-img{display:flex;align-items:center;gap:10px}
+.parola-img svg{width:44px;height:44px;flex:0 0 auto}
+.parola-img input[type=text]{width:100%}
+
+.sfida-reveal{display:none;border-radius:16px;padding:20px 22px;margin-top:20px;font-size:17px;line-height:1.6}
+.sfida-reveal.on{display:block}
+.sfida-reveal.trappola{background:var(--warnL);border:1.5px solid var(--gold2)}
+.sfida-reveal.riuscito{background:var(--goldL);border:1.5px solid var(--gold2)}
+.sfida-reveal h4{font-size:21px;margin:0 0 8px}
+.sfida-reveal .rlab{font-family:var(--head);font-weight:700;font-size:13.5px;text-transform:uppercase;
+  letter-spacing:.4px;color:var(--gold);display:block;margin-bottom:2px}
+.sfida-stat{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.sfida-stat .st{flex:1 1 150px;background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:12px 16px}
+.sfida-stat .stv{font-family:var(--head);font-weight:700;font-size:24px;color:var(--pri);line-height:1.1}
+.sfida-stat .stl{font-size:14px;color:var(--muted)}
+
 /* ---------- modal docenti ---------- */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(8,61,57,.5);z-index:100;
   align-items:center;justify-content:center;padding:20px}
@@ -437,7 +495,9 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
     <button class="pill" data-go="5" type="button"><span class="n">6</span><span>Il laboratorio</span>
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
-    <button class="pill" data-go="6" type="button"><span class="n">7</span><span>Rifletto</span>
+    <button class="pill" data-go="6" type="button"><span class="n">7</span><span>La sfida</span>
+      <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
+    <button class="pill" data-go="7" type="button"><span class="n">8</span><span>Rifletto</span>
       <svg class="done-ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/></svg></button>
   </div>
 </nav>
@@ -842,7 +902,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       </div>
 
       <div class="btnrow" id="rowAvanti5" style="display:none">
-        <button class="btn btn-avanti" data-go="6" type="button"><span>Vai all'ultima tappa</span>
+        <button class="btn btn-avanti" data-go="6" type="button"><span>Vai alla sfida finale</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -850,8 +910,56 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
   </div>
 </section>
 
-<!-- ============ TAPPA 7 · RIFLETTO ============ -->
+<!-- ============ TAPPA 7 · LA SFIDA (test delle istruzioni) ============ -->
 <section class="step" id="sec6">
+  <div class="wrap">
+    <div class="card">
+      <h2 class="titolone">La sfida della bottega</h2>
+      <p class="lead">Fin qui hai <strong>scritto</strong> consegne. Ultima prova: adesso ne devi
+      <strong>eseguire</strong> una, proprio come Eleonora. Qui sotto c'&egrave; una consegna di lavoro vero
+      &mdash; venti istruzioni &mdash; e il tuo <strong>foglio di lavoro</strong> (tutto sullo schermo:
+      niente carta, niente penna). Leggi la consegna e mettila in pratica sul foglio. Quando hai finito,
+      premi il pulsante in fondo.</p>
+
+      <div class="consegna-box">
+        <div class="consegna-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+          <span>La consegna &mdash; leggila prima di toccare il foglio</span>
+        </div>
+        <ol id="sfidaLista" class="consegna-lista"></ol>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:22px">Il foglio di lavoro</h3>
+      <p style="font-size:16px;color:var(--muted);margin-top:0">Il tuo foglio, in versione digitale: scrivi nei riquadri,
+      tocca le risposte, colora e disegna con un tocco. Fai quello che dice la consegna.</p>
+      <div id="foglioLavoro" class="foglio" aria-label="Foglio di lavoro con i riquadri da A a Z"></div>
+
+      <div class="btnrow" style="margin-top:20px">
+        <button class="btn btn-pri" id="btnConsegnaFinita" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>Consegna finita</span>
+        </button>
+        <button class="btn btn-ghost" id="btnSfidaReset" type="button" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+          <span>Riprova da capo</span>
+        </button>
+      </div>
+
+      <div id="sfidaReveal" class="sfida-reveal"></div>
+
+      <div class="btnrow" id="rowAvantiSfida" style="display:none">
+        <button class="btn btn-avanti" data-go="7" type="button"><span>Vai all'ultima tappa</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAPPA 8 · RIFLETTO ============ -->
+<section class="step" id="sec7">
   <div class="wrap">
     <div class="card">
       <h2 class="titolone">Chiudiamo il cerchio (e svuotiamo la tasca)</h2>
@@ -976,7 +1084,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <p><strong>Tag:</strong> Comprensione del testo · Scrittura funzionale · Metacognizione · Lessico e ambiguit&agrave;.</p>
     </div>
     <div class="tabpane">
-      <h3>Le sette tappe</h3>
+      <h3>Le otto tappe</h3>
       <ul>
         <li><strong>Il caso</strong> &mdash; il video &egrave; la prima cosa che lo studente incontra; poi la domanda-cornice (&laquo;dove si &egrave; inceppato il meccanismo?&raquo;), lasciata volutamente aperta (effetto Zeigarnik).</li>
         <li><strong>L'indagine</strong> &mdash; le 4 istruzioni analizzate una a una: lo studente individua il tipo di trappola (modo di dire, informazione sottintesa, parola imprecisa, destinazione mancante).</li>
@@ -984,6 +1092,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         <li><strong>Il banco del traduttore</strong> &mdash; frasi a doppio senso da tradurre in consegne chiare, in due gruppi: <em>modi di dire</em> d'aula e di casa (&laquo;buttate gi&ugrave; una scaletta&raquo;, &laquo;un lavoro coi fiocchi&raquo;&hellip;) e <em>parole della tecnologia</em> che nel linguaggio comune significano altro (&laquo;apri la finestra&raquo;, &laquo;salva&raquo;, &laquo;cartella&raquo;, &laquo;scrivania&raquo;&hellip;). Allenamento mirato sulla trappola pi&ugrave; frequente, con la lettura letterale di Eleonora come pungolo e un aiuto a scomparsa sul significato (utile anche per studenti di madrelingua diversa e per il lessico digitale).</li>
         <li><strong>L'officina</strong> &mdash; riscrittura del messaggio del pap&agrave; con scaffolding e collaudo a 6 controlli.</li>
         <li><strong>Il laboratorio</strong> &mdash; 10 simulazioni verosimili (casa, scuola, tecnologia): da una consegna ambigua a una consegna chiara, senza scaffolding. Ogni riscrittura passa dal collaudo; il <em>radar di Eleonora</em> evidenzia in ambra le parole-spia residue (metti, bene, un po'&hellip;) con una domanda socratica: segnala, non boccia.</li>
+        <li><strong>La sfida</strong> &mdash; rivisitazione del classico <em>test delle istruzioni</em>: una consegna di 20 punti su un foglio di lavoro digitale (riquadri A&ndash;Z: nome, storia, operazioni, cerchi, ortografia, disegni&hellip;). L'inganno &egrave; nella consegna stessa: l'istruzione 1 chiede di leggere tutto prima, l'ultima svela che vanno eseguiti solo due punti. Chi non legge fino in fondo svolge decine di esercizi inutili. Al &laquo;Consegna finita&raquo; la pagina rivela se lo studente &egrave; caduto nella trappola, quanti esercizi inutili ha svolto e in quanto tempo &mdash; senza colpevolizzare (&laquo;ci cascano quasi tutti&raquo;) e con &laquo;Riprova da capo&raquo;. &Egrave; la dimostrazione pratica della tesi del percorso: la consegna si legge <em>intera</em> prima di agire.</li>
         <li><strong>Rifletto</strong> &mdash; la <em>caccia alla trappola</em> (verifica di transfer: 5 parole-trappola da toccare in una consegna mai vista, una per ingrediente), poi metacognizione e chiusura dei loop narrativi.</li>
       </ul>
       <h3>Valutazione suggerita</h3>
@@ -1023,7 +1132,7 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
 /* ============================================================
    NAVIGAZIONE A TAPPE
 ============================================================ */
-var SEZIONI = 7;
+var SEZIONI = 8;
 function vaiA(i){
   var k;
   for(k=0;k<SEZIONI;k++){
@@ -1038,7 +1147,7 @@ function vaiA(i){
   }
   window.scrollTo({top:0, behavior:'smooth'});
 }
-var completate = [false,false,false,false,false,false,false];
+var completate = [false,false,false,false,false,false,false,false];
 var cronoStart = null;
 function avviaCrono(){ if(cronoStart === null) cronoStart = Date.now(); }
 function segnaCompletata(i){
@@ -1796,7 +1905,7 @@ document.getElementById('btnCopia').addEventListener('click', function(){
 
   function fatto(){
     document.getElementById('msgCopiato').classList.add('on');
-    segnaCompletata(6);
+    segnaCompletata(7);
   }
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(testo).then(fatto, function(){ copiaFallback(testo); fatto(); });
@@ -1866,7 +1975,7 @@ var CACCIA = [
             tok.why + '<br><br><strong>La caccia &egrave; chiusa.<\/strong> Hai letto una consegna mai vista e le trappole ' +
             'le hai viste <em>prima<\/em> di caderci: &egrave; esattamente quello che ti succeder&agrave; d’ora in poi, ' +
             'senza nemmeno accorgertene. Ora s&igrave; che puoi mettere nero su bianco, qui sotto.';
-          segnaCompletata(6);
+          segnaCompletata(7);
         }
       } else {
         b.classList.remove('err');
@@ -1936,7 +2045,326 @@ var CACCIA = [
 })();
 
 /* ============================================================
-   TAPPA 7 · SCHEDA DI VERIFICA FINALE (spunte + tempo)
+   TAPPA 7 · LA SFIDA (test delle istruzioni: leggi tutto prima di agire)
+============================================================ */
+(function(){
+  var lista = document.getElementById('sfidaLista');
+  var foglio = document.getElementById('foglioLavoro');
+  if(!lista || !foglio) return;
+
+  var ISTRUZIONI = [
+    'Leggi TUTTA questa lista con attenzione prima di fare qualsiasi cosa.',
+    'Scrivi il tuo nome nel riquadro B.',
+    'Leggi due volte la storia nel riquadro C.',
+    'Scrivi il nome della protagonista della storia (riquadro C) nel riquadro D.',
+    'Scrivi la data di oggi nel riquadro H.',
+    'Colora la punta del triangolo nel riquadro E.',
+    'Svolgi l’esercizio nel riquadro F.',
+    'Svolgi l’esercizio nel riquadro G.',
+    'Riquadri I · L · M: cerchia la parola che non è un animale.',
+    'Disegna un sole nel riquadro A.',
+    'Riquadri N · O · P: cerchia il risultato esatto di 4 × 8.',
+    'Scrivi il risultato dell’operazione del riquadro Q.',
+    'Nella storia del riquadro C, sottolinea le frasi poco chiare della consegna del papà.',
+    'Scrivi il risultato dell’operazione del riquadro R.',
+    'Scrivi il risultato dell’operazione del riquadro S.',
+    'Riquadri T · U · V: metti una X sulle parole scritte in modo sbagliato.',
+    'Completa le parole del riquadro Z.',
+    'Rileggi tutti i riquadri e controlla di non aver saltato niente.',
+    'Premi il pulsante «Consegna finita».',
+    'Ora che hai letto TUTTO con attenzione, fai SOLO i numeri: 2, 19 e 20.'
+  ];
+  ISTRUZIONI.forEach(function(t){
+    var li = document.createElement('li');
+    li.textContent = t;
+    lista.appendChild(li);
+  });
+
+  var STORIA =
+    'Un sabato mattina il papà, di corsa, lasciò a Eleonora un biglietto sul tavolo: ' +
+    '«##dai una sistemata## alla cucina, ##tira fuori qualcosa## per il pranzo e poi ##fai un salto## dai nonni». ' +
+    'Stavolta Eleonora non partì a caso. Rilesse con calma e notò tre punti poco chiari. ' +
+    'Così prese il telefono e fece una domanda per ognuno: «Papà, lavo i piatti o riordino? ' +
+    'Tiro fuori dal frigo o dal congelatore? A che ora vado dai nonni?». Il papà rispose, contento. ' +
+    'In cinque minuti Eleonora aveva capito tutto — e non dovette rifare niente.';
+
+  var startTime = null;
+  function avvia(){ if(startTime === null) startTime = Date.now(); }
+  foglio.addEventListener('input', avvia, true);
+  foglio.addEventListener('click', avvia, true);
+
+  function box(letter, span, domanda){
+    var b = document.createElement('div');
+    b.className = 'fbox col-' + span;
+    b.dataset.letter = letter;
+    var l = document.createElement('span');
+    l.className = 'flet';
+    l.textContent = letter;
+    b.appendChild(l);
+    if(domanda){
+      var q = document.createElement('span');
+      q.className = 'fq';
+      q.innerHTML = domanda;
+      b.appendChild(q);
+    }
+    foglio.appendChild(b);
+    return b;
+  }
+  function textInput(parent, ph){
+    var i = document.createElement('input');
+    i.type = 'text';
+    i.placeholder = ph || '';
+    parent.appendChild(i);
+    return i;
+  }
+  function chip(parent, testo, mode){
+    var c = document.createElement('button');
+    c.type = 'button';
+    c.className = 'opz';
+    c.textContent = testo;
+    c.addEventListener('click', function(){ c.classList.toggle(mode === 'x' ? 'segnata' : 'sel'); });
+    parent.appendChild(c);
+    return c;
+  }
+
+  // A · disegna un sole
+  var bA = box('A', 2, 'Disegna un sole');
+  var sole = document.createElement('div');
+  sole.className = 'sole-box';
+  sole.setAttribute('role','button');
+  sole.setAttribute('tabindex','0');
+  sole.setAttribute('aria-label','Disegna un sole');
+  sole.innerHTML = '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="15" fill="none" stroke="#CDBB98" stroke-width="2" stroke-dasharray="3 4"/></svg>';
+  sole.addEventListener('click', function(){
+    sole.classList.toggle('on');
+    sole.querySelector('svg').innerHTML = sole.classList.contains('on')
+      ? '<circle cx="40" cy="40" r="15" fill="#D4A017"/><g stroke="#D4A017" stroke-width="3" stroke-linecap="round"><path d="M40 8v10M40 62v10M8 40h10M62 40h10M17 17l7 7M56 56l7 7M63 17l-7 7M24 56l-7 7"/></g>'
+      : '<circle cx="40" cy="40" r="15" fill="none" stroke="#CDBB98" stroke-width="2" stroke-dasharray="3 4"/>';
+  });
+  bA.appendChild(sole);
+
+  // B · nome (RICHIESTO)
+  var bB = box('B', 4, 'Scrivi il tuo nome');
+  var inNome = textInput(bB, 'Il tuo nome');
+
+  // C · storia + sottolineatura
+  var bC = box('C', 6, 'La nuova consegna del papà a Eleonora — leggila due volte');
+  var storia = document.createElement('div');
+  storia.className = 'storia';
+  var parti = STORIA.split('##');
+  parti.forEach(function(seg, k){
+    if(k % 2 === 1){
+      var s = document.createElement('span');
+      s.className = 'amb';
+      s.textContent = seg;
+      s.addEventListener('click', function(){ s.classList.toggle('sott'); });
+      storia.appendChild(s);
+    } else {
+      storia.appendChild(document.createTextNode(seg));
+    }
+  });
+  bC.appendChild(storia);
+
+  // D · nome protagonista
+  var bD = box('D', 2, 'Nome della protagonista');
+  textInput(bD, '...');
+
+  // H · data di oggi
+  var bH = box('H', 2, 'Data di oggi');
+  textInput(bH, 'gg/mm/aaaa');
+
+  // E · triangolo (colora la punta)
+  var bE = box('E', 2, 'Colora la punta del triangolo');
+  var tri = document.createElement('div');
+  tri.className = 'triangolo';
+  tri.setAttribute('role','button');
+  tri.setAttribute('tabindex','0');
+  tri.setAttribute('aria-label','Colora la punta del triangolo');
+  function disegnaTri(){
+    tri.innerHTML = '<svg viewBox="0 0 80 80" aria-hidden="true">' +
+      '<path d="M40 10 L68 68 L12 68 Z" fill="none" stroke="#6E5F4B" stroke-width="2"/>' +
+      (tri.classList.contains('on') ? '<path d="M40 10 L48 27 L32 27 Z" fill="#C86A3A"/>' : '') +
+      '<path d="M32 27 L48 27" stroke="#6E5F4B" stroke-width="1.5"/></svg>';
+  }
+  disegnaTri();
+  tri.addEventListener('click', function(){ tri.classList.toggle('on'); disegnaTri(); });
+  bE.appendChild(tri);
+
+  // F · esercizio 4× ; G · esercizio 2×
+  function wheel(letter, mult){
+    var b = box(letter, 3, 'Svolgi l’esercizio: scrivi ogni prodotto');
+    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 100 100'); svg.setAttribute('class','wheel-svg');
+    svg.innerHTML = '<circle cx="50" cy="50" r="46" fill="none" stroke="#C86A3A" stroke-width="1.5"/>' +
+      '<circle cx="50" cy="50" r="30" fill="none" stroke="#C86A3A" stroke-width="1.5"/>' +
+      '<circle cx="50" cy="50" r="16" fill="none" stroke="#C86A3A" stroke-width="1.5"/>' +
+      '<text x="50" y="56" text-anchor="middle" font-size="15" font-weight="700" fill="#A9502A">' + mult + '×</text>';
+    var i;
+    for(i=0;i<12;i++){
+      var ang = (i/12)*2*Math.PI - Math.PI/2;
+      var x = 50 + 23*Math.cos(ang), y = 50 + 23*Math.sin(ang) + 3;
+      svg.innerHTML += '<text x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="middle" font-size="7" fill="#6E5F4B">'+(i+1)+'</text>';
+    }
+    b.appendChild(svg);
+    var grid = document.createElement('div');
+    grid.className = 'wheel-inputs';
+    for(i=1;i<=12;i++){
+      var mo = document.createElement('span');
+      mo.className = 'miniop';
+      mo.innerHTML = '<span class="segno">'+mult+'×'+i+'</span>';
+      var inp = document.createElement('input'); inp.type='text'; inp.setAttribute('inputmode','numeric');
+      mo.appendChild(inp);
+      grid.appendChild(mo);
+    }
+    b.appendChild(grid);
+  }
+  wheel('F', 4);
+  wheel('G', 2);
+
+  // I · L · M  (cerchia la parola che non è un animale)
+  ['I','L','M'].forEach(function(let_, k){
+    var parole = ['GATTO','CAVALLO','TORRE'];
+    var b = box(let_, 2, 'Cerchia se non è un animale');
+    var row = document.createElement('div'); row.className='opzrow';
+    chip(row, parole[k], 'sel');
+    b.appendChild(row);
+  });
+
+  // N · O · P  (cerchia il risultato di 4×8)
+  ['N','O','P'].forEach(function(let_, k){
+    var num = ['32','33','34'];
+    var b = box(let_, 2, 'Cerchia se è 4 × 8');
+    var row = document.createElement('div'); row.className='opzrow';
+    chip(row, num[k], 'sel');
+    b.appendChild(row);
+  });
+
+  // Q · R · S  (operazioni)
+  [['Q','3 × 3 ='],['R','4 × 5 ='],['S','4 × 7 =']].forEach(function(op){
+    var b = box(op[0], 2, '');
+    var mo = document.createElement('div'); mo.className='miniop';
+    mo.innerHTML = '<span class="segno">'+op[1]+'</span>';
+    var inp = document.createElement('input'); inp.type='text'; inp.setAttribute('inputmode','numeric');
+    mo.appendChild(inp);
+    b.appendChild(mo);
+  });
+
+  // T · U · V  (X sulle parole scritte male)
+  ['T','U','V'].forEach(function(let_, k){
+    var parole = ['COMPUTER','COMPIUTER','CONPUTER'];
+    var b = box(let_, 2, 'Metti una X se è scritta male');
+    var row = document.createElement('div'); row.className='opzrow';
+    chip(row, parole[k], 'x');
+    b.appendChild(row);
+  });
+
+  // Z · completa le parole con le immagini
+  var bZ = box('Z', 6, 'Completa le parole guardando le immagini');
+  var zgrid = document.createElement('div');
+  zgrid.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:14px';
+  var ZW = [
+    {svg:'<path d="M14 30c0-8 6-12 12-11 2-6 8-6 9-1 3 0 4 3 2 5 5 2 5 9-1 10-3 6-9 7-14 4l-2 4h-9l3-6c-2-2-2-6 0-9z" fill="none" stroke="#6E5F4B" stroke-width="1.6"/>', pre:'', suff:'gno'},
+    {svg:'<path d="M8 34c4 2 10 2 14-2 6-6 4-16-2-18-5-2-9 2-8 7 1 4 5 4 6 1" fill="none" stroke="#6E5F4B" stroke-width="1.6"/><path d="M22 14c6-2 12 2 14 8" fill="none" stroke="#6E5F4B" stroke-width="1.6"/>', pre:'con', suff:'glia'},
+    {svg:'<path d="M6 30c6 0 8-4 14-4 5 0 6 4 12 3M10 30c-2 3 0 5 2 4M30 29c2 3 5 2 6-1" fill="none" stroke="#6E5F4B" stroke-width="1.6"/><circle cx="34" cy="26" r="1.4" fill="#6E5F4B"/>', pre:'lu', suff:'rtola'}
+  ];
+  ZW.forEach(function(w){
+    var cell = document.createElement('div'); cell.className='parola-img';
+    cell.innerHTML = '<svg viewBox="0 0 44 44" aria-hidden="true">'+w.svg+'</svg>';
+    var wrap = document.createElement('span');
+    wrap.style.cssText='display:inline-flex;align-items:center;gap:2px;font-size:15px';
+    if(w.pre) wrap.appendChild(document.createTextNode(w.pre));
+    var inp = document.createElement('input'); inp.type='text'; inp.style.width='54px'; inp.style.textAlign='center';
+    wrap.appendChild(inp);
+    wrap.appendChild(document.createTextNode(w.suff));
+    cell.appendChild(wrap);
+    zgrid.appendChild(cell);
+  });
+  bZ.appendChild(zgrid);
+
+  // --- valutazione ---
+  function statoAttuale(){
+    var engaged = {};
+    foglio.querySelectorAll('input[type=text]').forEach(function(inp){
+      if(inp.value.trim() !== ''){ var bx = inp.closest('.fbox'); if(bx) engaged[bx.dataset.letter] = true; }
+    });
+    foglio.querySelectorAll('.opz.sel,.opz.segnata').forEach(function(c){
+      var bx = c.closest('.fbox'); if(bx) engaged[bx.dataset.letter] = true;
+    });
+    if(foglio.querySelector('.storia .amb.sott')) engaged['C'] = true;
+    if(foglio.querySelector('.triangolo.on')) engaged['E'] = true;
+    if(foglio.querySelector('.sole-box.on')) engaged['A'] = true;
+    return engaged;
+  }
+  function durata(){
+    if(startTime === null) return '0 min 00 s';
+    var tot = Math.max(0, Math.round((Date.now()-startTime)/1000));
+    var m = Math.floor(tot/60), s = tot%60;
+    return m + ' min ' + (s<10?'0':'') + s + ' s';
+  }
+
+  var reveal = document.getElementById('sfidaReveal');
+  var btnFine = document.getElementById('btnConsegnaFinita');
+  var btnReset = document.getElementById('btnSfidaReset');
+  var totEsche = foglio.querySelectorAll('.fbox').length - 1;
+
+  btnFine.addEventListener('click', function(){
+    var eng = statoAttuale();
+    var nomeOk = !!eng['B'];
+    var decoys = Object.keys(eng).filter(function(l){ return l !== 'B'; });
+    var tempo = durata();
+
+    var html = '';
+    if(decoys.length === 0){
+      reveal.className = 'sfida-reveal on riuscito';
+      html += '<span class="rlab">Prova superata</span>';
+      html += '<h4>Sei tra i pochi che leggono fino in fondo!</h4>';
+      html += '<p>La consegna era una <strong>trappola</strong>: le istruzioni 3–18 sembravano compiti da fare, ' +
+        'ma l’istruzione 1 diceva di <strong>leggere tutto prima</strong> e la 20 svelava che servivano ' +
+        'solo il <strong>nome</strong> (2) e il pulsante <strong>Consegna finita</strong> (19). ' +
+        (nomeOk ? 'Hai fatto esattamente quello, e nient’altro.' :
+        'Non sei caduto nella trappola degli esercizi — ti è sfuggito solo il tuo nome (istruzione 2).') + '</p>';
+      html += '<div class="sfida-stat"><div class="st"><div class="stv">0</div><div class="stl">esercizi inutili svolti</div></div>' +
+        '<div class="st"><div class="stv">'+tempo+'</div><div class="stl">tempo impiegato</div></div></div>';
+      html += '<p>Questo è il vero regalo del percorso: <strong>leggere la consegna intera prima di muovere un dito</strong>. ' +
+        'Chi scrive consegne chiare, le legge meglio.</p>';
+    } else {
+      reveal.className = 'sfida-reveal on trappola';
+      html += '<span class="rlab">Trappola scattata</span>';
+      html += '<h4>Ci sei cascato — come quasi tutti.</h4>';
+      html += '<p>È la trappola più antica del mondo, e non c’entra l’intelligenza: c’entra la fretta. ' +
+        'L’istruzione <strong>1</strong> diceva &laquo;leggi TUTTA la lista prima di fare qualsiasi cosa&raquo;, ' +
+        'e l’istruzione <strong>20</strong> svelava che bastava fare i numeri <strong>2</strong> (il nome) e ' +
+        '<strong>19</strong> (premere il pulsante). Tutto il resto — le operazioni, i cerchi, il triangolo, il sole — ' +
+        'era lì apposta per farti perdere tempo.</p>';
+      html += '<div class="sfida-stat"><div class="st"><div class="stv">'+decoys.length+'</div><div class="stl">esercizi inutili svolti (su '+totEsche+' esche)</div></div>' +
+        '<div class="st"><div class="stv">'+tempo+'</div><div class="stl">tempo che potevi risparmiare</div></div></div>';
+      html += '<p>Nessun voto e nessuna colpa: succede a moltissimi la prima volta. ' +
+        'La lezione è tutta qui: <strong>la consegna si legge fino in fondo, prima di iniziare</strong>. ' +
+        'Premi &laquo;Riprova da capo&raquo; e rifalla nel modo giusto.</p>';
+    }
+    reveal.innerHTML = html;
+    btnReset.style.display = 'inline-flex';
+    document.getElementById('rowAvantiSfida').style.display = 'flex';
+    segnaCompletata(6);
+    reveal.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  btnReset.addEventListener('click', function(){
+    foglio.querySelectorAll('input[type=text]').forEach(function(i){ i.value=''; });
+    foglio.querySelectorAll('.opz.sel,.opz.segnata').forEach(function(c){ c.classList.remove('sel','segnata'); });
+    foglio.querySelectorAll('.storia .amb.sott').forEach(function(s){ s.classList.remove('sott'); });
+    var tr = foglio.querySelector('.triangolo.on'); if(tr){ tr.classList.remove('on'); disegnaTri(); }
+    var so = foglio.querySelector('.sole-box.on'); if(so){ so.classList.remove('on'); so.querySelector('svg').innerHTML = '<circle cx="40" cy="40" r="15" fill="none" stroke="#CDBB98" stroke-width="2" stroke-dasharray="3 4"/>'; }
+    reveal.className = 'sfida-reveal';
+    reveal.innerHTML = '';
+    btnReset.style.display = 'none';
+    startTime = null;
+    document.getElementById('foglioLavoro').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+
+/* ============================================================
+   TAPPA 8 · SCHEDA DI VERIFICA FINALE (spunte + tempo)
 ============================================================ */
 function fmtDurata(ms){
   var tot = Math.max(0, Math.round(ms/1000));
@@ -1950,6 +2378,7 @@ var CHK = [
   {nome:'Il traduttore', desc:'hai tradotto almeno quattro modi di dire'},
   {nome:'L’officina', desc:'hai collaudato la riscrittura del papà'},
   {nome:'Il laboratorio', desc:'hai riscritto almeno tre consegne'},
+  {nome:'La sfida', desc:'hai affrontato la prova delle venti istruzioni'},
   {nome:'Rifletto', desc:'hai completato la caccia alla trappola'}
 ];
 document.getElementById('btnVerifica').addEventListener('click', function(){
