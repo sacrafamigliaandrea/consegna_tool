@@ -152,8 +152,17 @@ section.step.on{display:block}
 .caso-foto{max-width:360px;margin:8px auto 6px}
 .caso-foto img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:var(--shadow)}
 .caso-foto figcaption{font-size:14.5px;color:var(--muted);font-style:italic;text-align:center;margin-top:8px}
-.grafiche{display:flex;flex-direction:column;gap:16px;margin-top:10px}
-.grafiche img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--brd);box-shadow:var(--shadow)}
+.grafiche{display:flex;flex-direction:column;gap:0;margin-top:12px}
+.grafica{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:center;
+  padding:18px 0;border-bottom:1px solid var(--brd)}
+.grafica:first-child{padding-top:4px}
+.grafica:last-child{border-bottom:0;padding-bottom:4px}
+@media(max-width:640px){.grafica{grid-template-columns:1fr;gap:12px}}
+.grafica img{width:100%;aspect-ratio:920/430;object-fit:cover;display:block;border-radius:12px;
+  border:1px solid var(--brd);box-shadow:var(--shadow)}
+.grafica-txt{min-width:0}
+.grafica-txt h4{font-size:18.5px;margin:0 0 4px}
+.grafica-txt p{font-size:17px;margin:0;color:var(--text)}
 .scena blockquote{margin:0 0 8px;font-size:18.5px;font-style:italic;color:var(--accD);
   border-left:4px solid var(--acc);padding-left:12px}
 .scena .fatto{font-size:16.5px;color:var(--muted);margin:0 0 10px}
@@ -606,9 +615,27 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         per immagini, ambiente per ambiente, con dentro i cinque ingredienti. &Egrave; cos&igrave; che Eleonora
         avrebbe capito al primo colpo.</p>
         <div class="grafiche">
-          <img src="a.png" alt="Rientro e pulizia della sala: posa lo zaino, alza le sedie della sala e passa la scopa sotto il tavolo" loading="lazy">
-          <img src="b.png" alt="Lavanderia e cucina: controlla i vestiti in lavatrice e scalda il latte nel pentolino tenendolo d&rsquo;occhio" loading="lazy">
-          <img src="c.png" alt="Smaltimento rifiuti: prendi il sacco della spazzatura e portalo fuori casa, nel bidone" loading="lazy">
+          <div class="grafica">
+            <img src="a.png" alt="Rientro e pulizia della sala: posa lo zaino, alza le sedie della sala e passa la scopa sotto il tavolo" loading="lazy">
+            <div class="grafica-txt">
+              <h4>Rientro e pulizia della sala</h4>
+              <p>Posa lo zaino, alza le sedie della sala (capovolte sul tavolo) e passa la scopa sotto il tavolo.</p>
+            </div>
+          </div>
+          <div class="grafica">
+            <img src="b.png" alt="Lavanderia e cucina: controlla i vestiti in lavatrice e scalda il latte nel pentolino tenendolo d&rsquo;occhio" loading="lazy">
+            <div class="grafica-txt">
+              <h4>Lavanderia e cucina</h4>
+              <p>Controlla i vestiti in lavatrice e scalda il latte nel pentolino, tenendolo d&rsquo;occhio finch&eacute; non bolle.</p>
+            </div>
+          </div>
+          <div class="grafica">
+            <img src="c.png" alt="Smaltimento rifiuti: prendi il sacco della spazzatura e portalo fuori casa, nel bidone" loading="lazy">
+            <div class="grafica-txt">
+              <h4>Smaltimento rifiuti</h4>
+              <p>Prendi il sacco della spazzatura e portalo fuori casa, dentro il bidone.</p>
+            </div>
+          </div>
         </div>
       </div>
 
