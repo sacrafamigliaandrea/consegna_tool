@@ -145,6 +145,14 @@ section.step.on{display:block}
 .scena{display:flex;flex-direction:column}
 .scena .figura{margin:0 0 12px}
 .scena .figura svg{width:100%;height:auto;display:block}
+.scena .figura img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:var(--shadow)}
+.scena .figura .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:520px){.scena .figura .duo{grid-template-columns:1fr}}
+.caso-foto{max-width:360px;margin:8px auto 6px}
+.caso-foto img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:var(--shadow)}
+.caso-foto figcaption{font-size:14.5px;color:var(--muted);font-style:italic;text-align:center;margin-top:8px}
+.grafiche{display:flex;flex-direction:column;gap:16px;margin-top:10px}
+.grafiche img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--brd);box-shadow:var(--shadow)}
 .scena blockquote{margin:0 0 8px;font-size:18.5px;font-style:italic;color:var(--accD);
   border-left:4px solid var(--acc);padding-left:12px}
 .scena .fatto{font-size:16.5px;color:var(--muted);margin:0 0 10px}
@@ -319,6 +327,34 @@ input[type=text]{width:100%;font-family:var(--body);font-size:18px;color:var(--t
 .radarbox mark.spy{background:#F2DFA9;color:inherit;border-bottom:2px solid var(--gold2);
   border-radius:4px;padding:0 3px;font-weight:700}
 
+/* ---------- scheda di verifica finale ---------- */
+.checkout{display:none;margin-top:18px}
+.checkout.on{display:block}
+.check-tempo{display:flex;align-items:center;gap:16px;background:var(--priL);border:1px solid var(--brd);
+  border-radius:14px;padding:16px 20px;margin-bottom:16px}
+.check-tempo svg{width:36px;height:36px;color:var(--pri);flex:0 0 auto}
+.check-tempo .tv{font-family:var(--head);font-weight:700;font-size:26px;color:var(--pri);line-height:1.1}
+.check-tempo .tl{font-size:14.5px;color:var(--muted)}
+.check-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.check-list li{display:flex;align-items:center;gap:13px;border:1.5px solid var(--brd);border-radius:12px;
+  padding:12px 16px;background:var(--card)}
+.check-list li.ok{border-color:var(--ok);background:var(--okL)}
+.check-list .cbox{width:26px;height:26px;border-radius:50%;flex:0 0 auto;display:inline-flex;
+  align-items:center;justify-content:center;border:2px solid var(--brd2);background:var(--card)}
+.check-list li.ok .cbox{background:var(--ok);border-color:var(--ok)}
+.check-list .cbox svg{width:15px;height:15px;display:none}
+.check-list li.ok .cbox svg{display:block}
+.check-list .cn{flex:1 1 auto;font-size:16.5px;line-height:1.4}
+.check-list .cn b{font-family:var(--head);font-weight:600;color:var(--pri)}
+.check-list .cstato{font-family:var(--head);font-size:12.5px;font-weight:700;letter-spacing:.4px;
+  text-transform:uppercase;color:var(--light);white-space:nowrap;flex:0 0 auto}
+.check-list li.ok .cstato{color:var(--ok)}
+.check-verdetto{margin-top:16px;border-radius:14px;padding:16px 20px;font-size:17.5px}
+.check-verdetto.tutto{background:var(--goldL);border:1px solid var(--gold2)}
+.check-verdetto.manca{background:var(--warnL);border:1px solid var(--gold2)}
+.check-verdetto .lab{font-family:var(--head);font-weight:700;font-size:14px;text-transform:uppercase;
+  letter-spacing:.4px;display:block;margin-bottom:4px;color:var(--gold)}
+
 /* ---------- modal docenti ---------- */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(8,61,57,.5);z-index:100;
   align-items:center;justify-content:center;padding:20px}
@@ -431,6 +467,12 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <p class="lead">Hai visto bene: Eleonora ha fatto <strong>tutto</strong> quello che il pap&agrave; le ha chiesto
       al telefono. Nessuna istruzione saltata. Eppure il latte &egrave; finito in pentola col cartone,
       il sacco della spazzatura &egrave; volato fuori dalla porta e per spazzare si &egrave; infilata sotto il tavolo.</p>
+
+      <figure class="caso-foto">
+        <img src="1.jpg" alt="Eleonora, con lo zaino ancora addosso, ascolta il messaggio vocale del pap&agrave; al telefono vicino alla finestra" loading="lazy">
+        <figcaption>Appena rientrata da scuola, Eleonora ascolta il messaggio del pap&agrave;.</figcaption>
+      </figure>
+
       <div class="loopbox">
         <span class="lab">La domanda da tenere in tasca</span>
         Se Eleonora ha eseguito ogni parola, <strong>dove si &egrave; inceppato il meccanismo?</strong>
@@ -554,6 +596,18 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
             <span class="no"><span class="et">Ambiguo</span>&laquo;buttalo fuori&raquo;</span>
             <span class="si"><span class="et">Chiaro</span>&laquo;alla fine il sacco &egrave; <strong>dentro il bidone giallo</strong>, col coperchio chiuso&raquo;</span>
           </div>
+        </div>
+      </div>
+
+      <div style="margin-top:26px">
+        <h3 style="font-size:21px">Le stesse richieste, dette bene</h3>
+        <p style="font-size:16.5px;color:var(--muted);margin-top:0;max-width:77ch">La lista del pap&agrave; raccontata
+        per immagini, ambiente per ambiente, con dentro i cinque ingredienti. &Egrave; cos&igrave; che Eleonora
+        avrebbe capito al primo colpo.</p>
+        <div class="grafiche">
+          <img src="a.png" alt="Rientro e pulizia della sala: posa lo zaino, alza le sedie della sala e passa la scopa sotto il tavolo" loading="lazy">
+          <img src="b.png" alt="Lavanderia e cucina: controlla i vestiti in lavatrice e scalda il latte nel pentolino tenendolo d&rsquo;occhio" loading="lazy">
+          <img src="c.png" alt="Smaltimento rifiuti: prendi il sacco della spazzatura e portalo fuori casa, nel bidone" loading="lazy">
         </div>
       </div>
 
@@ -820,6 +874,30 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
       <p style="font-size:15px;color:var(--muted);margin-top:10px">Niente viene salvato da questa pagina:
       quello che hai scritto vive qui e nel tuo quaderno. Copialo prima di chiudere.</p>
     </div>
+
+    <div class="card">
+      <h2 class="titolone">La verifica finale</h2>
+      <p class="lead">Un ultimo gesto da bottega: controlla di aver attraversato <strong>tutte le tappe</strong>.
+      Premi il pulsante e vedrai le spunte del tuo percorso e il <strong>tempo</strong> che ci hai messo,
+      da quando hai dato la prima risposta. Niente viene salvato o inviato: &egrave; una verifica solo per te.</p>
+      <div class="btnrow">
+        <button class="btn btn-pri" id="btnVerifica" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          <span>Controlla il mio percorso</span>
+        </button>
+      </div>
+      <div class="checkout" id="checkout">
+        <div class="check-tempo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 13V9"/><path d="M9 2h6"/><path d="M18.5 5.5l1.5-1.5"/></svg>
+          <div>
+            <div class="tv" id="checkTempo">&mdash;</div>
+            <div class="tl">tempo dal primo click alla verifica</div>
+          </div>
+        </div>
+        <ul class="check-list" id="checkList"></ul>
+        <div class="check-verdetto" id="checkVerdetto"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -879,11 +957,12 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
         <li><strong>Di prodotto:</strong> il collaudo a 6 controlli dell'officina &egrave; una rubrica; i 5 ingredienti (0&ndash;5) valutano ogni riscrittura del laboratorio.</li>
         <li><strong>Tra pari:</strong> l'esecuzione a mimo &laquo;alla lettera&raquo; della consegna del compagno rende visibili le ambiguit&agrave; residue.</li>
         <li><strong>Di processo:</strong> le tre risposte metacognitive (copiabili con il pulsante finale; la pagina non salva nulla).</li>
+        <li><strong>Autovalutazione:</strong> la <em>scheda di verifica finale</em> mostra allo studente le spunte delle sette tappe e il tempo impiegato (dal primo click di risposta). &Egrave; un promemoria per lui e un colpo d'occhio per il docente sull'avanzamento: nulla viene salvato o inviato, e il tempo non &egrave; un voto ma una presa di consapevolezza.</li>
       </ul>
       <h3>Inclusione</h3>
       <ul>
         <li>Font ad alta leggibilit&agrave; (Atkinson Hyperlegible 18px, titoli Lexend), feedback mai punitivi (ambra, mai rosso).</li>
-        <li>Le scene illustrate permettono di seguire l'indagine anche senza audio; il messaggio del pap&agrave; &egrave; sempre rileggibile in forma scritta.</li>
+        <li>I fotogrammi del video e le grafiche illustrate permettono di seguire l'indagine e la spiegazione anche senza audio; il messaggio del pap&agrave; &egrave; sempre rileggibile in forma scritta.</li>
         <li>La consegna del pap&agrave; e le consegne del laboratorio si possono <strong>ascoltare ad alta voce</strong> (sintesi vocale in italiano, pulsante altoparlante): un aiuto in pi&ugrave; per studenti con DSA. Se il browser non la supporta, il pulsante si disattiva senza errori.</li>
         <li>Nel laboratorio lo studente sceglie l'ordine e il numero delle simulazioni: il percorso &egrave; naturalmente graduabile.</li>
       </ul>
@@ -903,315 +982,6 @@ footer .fbrand{font-family:var(--head);font-weight:600;color:var(--pri)}
     </div>
   </div>
 </div>
-
-<!-- ============ TEMPLATE SVG DELLE SCENE ============ -->
-<template id="tplScena0">
-  <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eleonora spazza a gattoni sotto il tavolo di vetro della sala da pranzo, con le sedie azzurre sollevate in aria">
-    <defs><clipPath id="v2c1"><rect x="0" y="0" width="240" height="170" rx="14"/></clipPath></defs>
-    <g clip-path="url(#v2c1)">
-      <rect x="0" y="0" width="140" height="170" fill="#DE9A55"/>
-      <rect x="140" y="0" width="100" height="170" fill="#D8CCBB"/>
-      <rect x="0" y="0" width="240" height="22" fill="#43301F"/>
-      <g stroke="#372716" stroke-width="1.2">
-        <path d="M0 6 H240"/><path d="M0 12 H240"/><path d="M0 18 H240"/>
-      </g>
-      <ellipse cx="120" cy="16" rx="14" ry="5" fill="#EFE9DC"/>
-      <rect x="196" y="42" width="34" height="30" rx="2" fill="#C4B8A4"/>
-      <rect x="199" y="45" width="28" height="24" rx="1.5" fill="#EDE6D6"/>
-      <g stroke="#B8A98E" stroke-width="1.6" stroke-linecap="round" fill="none">
-        <path d="M204 66 q1 -8 2 -12"/><path d="M211 66 q0 -10 1 -14"/><path d="M218 66 q-1 -9 -1 -13"/>
-      </g>
-      <g fill="#FAF6EC">
-        <circle cx="206" cy="52" r="2.6"/><circle cx="212" cy="49" r="2.6"/><circle cx="217" cy="52" r="2.6"/>
-      </g>
-      <circle cx="124" cy="46" r="9" fill="#D9A83E"/>
-      <circle cx="124" cy="46" r="4.5" fill="#C08F2C"/>
-      <path d="M122 54 l2 6 M126 54 l1 5" stroke="#A9502A" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="6" y="38" width="44" height="26" rx="2" fill="#FAF6EC"/>
-      <rect x="9" y="41" width="38" height="20" rx="1.5" fill="#EDE4D2"/>
-      <rect x="4" y="78" width="52" height="30" rx="2" fill="#FAF6EC"/>
-      <g fill="#B96D3E"><circle cx="16" cy="72" r="3"/><circle cx="30" cy="70" r="4"/></g>
-      <rect x="24" y="66" width="3" height="8" fill="#FAF6EC"/>
-      <path d="M25.5 60 q-4 4 0 6 q4 -2 0 -6" fill="#7FA562"/>
-      <rect x="66" y="34" width="42" height="76" rx="2" fill="#F1E9D8"/>
-      <g stroke="#DDD0B8" stroke-width="2"><path d="M68 52 h38 M68 70 h38 M68 88 h38"/></g>
-      <g>
-        <circle cx="76" cy="47" r="3.4" fill="#5B8FA3"/><rect x="84" y="42" width="6" height="8" rx="1" fill="#C86A3A"/><circle cx="98" cy="46" r="3.8" fill="#7FA562"/>
-        <rect x="72" y="60" width="7" height="8" rx="1" fill="#D9A83E"/><circle cx="88" cy="64" r="3.4" fill="#A76286"/><rect x="95" y="61" width="8" height="7" rx="1" fill="#5B8FA3"/>
-        <circle cx="77" cy="82" r="3.6" fill="#C86A3A"/><rect x="85" y="77" width="6" height="9" rx="1" fill="#7FA562"/><circle cx="98" cy="82" r="3.2" fill="#D9A83E"/>
-      </g>
-      <rect x="0" y="118" width="240" height="52" fill="#C0713F"/>
-      <g stroke="#AB5F31" stroke-width="1.4">
-        <path d="M0 132 H240 M0 148 H240 M0 163 H240"/>
-        <path d="M30 118 l-10 52 M80 118 l-8 52 M130 118 l0 52 M180 118 l8 52 M225 118 l10 52"/>
-      </g>
-      <g transform="translate(34,24) rotate(-10)">
-        <rect x="0" y="0" width="13" height="30" rx="5" fill="#C3D2E8"/>
-        <rect x="1.5" y="2" width="10" height="26" rx="4" fill="#D4E0F0"/>
-        <rect x="-1" y="28" width="26" height="9" rx="3.5" fill="#C3D2E8"/>
-        <rect x="1" y="37" width="4.5" height="14" rx="2" fill="#D9C29A"/>
-        <rect x="19" y="37" width="4.5" height="14" rx="2" fill="#D9C29A"/>
-      </g>
-      <g transform="translate(166,20) rotate(9)">
-        <rect x="12" y="0" width="13" height="30" rx="5" fill="#C3D2E8"/>
-        <rect x="13.5" y="2" width="10" height="26" rx="4" fill="#D4E0F0"/>
-        <rect x="0" y="28" width="26" height="9" rx="3.5" fill="#C3D2E8"/>
-        <rect x="2" y="37" width="4.5" height="14" rx="2" fill="#D9C29A"/>
-        <rect x="19.5" y="37" width="4.5" height="14" rx="2" fill="#D9C29A"/>
-      </g>
-      <g stroke="#6E5240" stroke-width="3" stroke-linecap="round">
-        <path d="M30 84 h10"/><path d="M47 90 h12"/>
-        <path d="M174 76 h11"/><path d="M192 83 h12"/>
-      </g>
-      <rect x="52" y="96" width="150" height="5" rx="2" fill="#D9C29A"/>
-      <rect x="56" y="92" width="142" height="6" rx="2" fill="#E9F0F4"/>
-      <rect x="56" y="92" width="142" height="2.4" rx="1.2" fill="#F7FBFD"/>
-      <rect x="60" y="101" width="9" height="45" rx="2" fill="#D9C29A"/>
-      <rect x="185" y="101" width="9" height="45" rx="2" fill="#D9C29A"/>
-      <rect x="60" y="101" width="3" height="45" fill="#C4AC82"/>
-      <rect x="185" y="101" width="3" height="45" fill="#C4AC82"/>
-      <g>
-        <path d="M158 128 q14 -2 15 10 l0 5 -14 1 q-4 -9 -1 -16 z" fill="#2C3A5A"/>
-        <path d="M158 141 q-1 5 4 5 l10 0 0 -4 q-6 -3 -14 -1 z" fill="#F5F2EA"/>
-        <path d="M160 144.5 l11 0" stroke="#26262E" stroke-width="2"/>
-        <path d="M104 122 Q130 108 160 126 L160 140 Q130 128 108 136 Z" fill="#26262E"/>
-        <path d="M112 128 q-2 10 -1 16" stroke="#EDBE96" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <circle cx="100" cy="124" r="11" fill="#EDBE96"/>
-        <path d="M89.5 121 a11 11 0 0 1 21 -3 l-4.5 .5 a14 14 0 0 0 -12 1.5 z" fill="#3A2A1E"/>
-        <circle cx="113" cy="113" r="4.6" fill="#3A2A1E"/>
-        <circle cx="95.5" cy="125" r="2" fill="#26201A"/>
-        <path d="M92 131 q3 2 6 1" stroke="#C98B60" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-        <path d="M104 130 q-10 6 -18 8" stroke="#EDBE96" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <path d="M88 138 L64 148" stroke="#5F9E57" stroke-width="3.4" stroke-linecap="round"/>
-        <path d="M64 148 l-11 -2 -3 8 11 3 z" fill="#D9A83E"/>
-        <g stroke="#B8860B" stroke-width="1.5" stroke-linecap="round">
-          <path d="M53 152 l-1.5 5"/><path d="M57 153 l-1.5 5"/><path d="M61 154 l-1.5 5"/>
-        </g>
-        <g fill="#E8D9BE">
-          <circle cx="46" cy="146" r="2.2"/><circle cx="41" cy="153" r="1.6"/><circle cx="49" cy="157" r="1.3"/>
-        </g>
-      </g>
-    </g>
-  </svg>
-</template>
-
-<template id="tplScena1">
-  <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eleonora accovacciata col telefono all'orecchio fissa l'oblò chiuso della lavatrice">
-    <defs><clipPath id="v2c2"><rect x="0" y="0" width="240" height="170" rx="14"/></clipPath></defs>
-    <g clip-path="url(#v2c2)">
-      <rect x="0" y="0" width="240" height="170" fill="#F2EDDF"/>
-      <g stroke="#E0D8C4" stroke-width="1.6">
-        <path d="M0 34 H240 M0 68 H240 M0 102 H240"/>
-        <path d="M40 0 V120 M80 0 V120 M120 0 V120 M160 0 V120 M200 0 V120"/>
-      </g>
-      <g opacity=".85">
-        <g fill="#D9A83E"><path d="M20 14 l4 5 -4 5 -4 -5 z"/><path d="M140 48 l4 5 -4 5 -4 -5 z"/><path d="M60 82 l4 5 -4 5 -4 -5 z"/><path d="M220 14 l4 5 -4 5 -4 -5 z"/></g>
-        <g fill="none" stroke="#5B7EA3" stroke-width="1.6" stroke-linecap="round">
-          <path d="M52 12 q8 4 0 10"/><path d="M172 46 q8 4 0 10"/><path d="M100 12 q-8 4 0 10"/><path d="M212 80 q-8 4 0 10"/><path d="M28 80 q8 4 0 10"/>
-        </g>
-      </g>
-      <rect x="0" y="132" width="240" height="38" fill="#C0713F"/>
-      <path d="M0 146 H240 M0 160 H240" stroke="#AB5F31" stroke-width="1.4"/>
-      <g>
-        <rect x="128" y="40" width="92" height="94" rx="7" fill="#FBF9F3"/>
-        <rect x="128" y="40" width="92" height="20" rx="7" fill="#E7E2D3"/>
-        <rect x="128" y="52" width="92" height="8" fill="#E7E2D3"/>
-        <rect x="136" y="45" width="22" height="9" rx="2" fill="#3E4A5A"/>
-        <circle cx="206" cy="50" r="6" fill="#CFC8B6"/><circle cx="206" cy="50" r="2.2" fill="#8A8271"/>
-        <circle cx="168" cy="50" r="2.4" fill="#8A8271"/><circle cx="178" cy="50" r="2.4" fill="#8A8271"/><circle cx="188" cy="50" r="2.4" fill="#8A8271"/>
-        <circle cx="174" cy="96" r="27" fill="#E2DCCB"/>
-        <circle cx="174" cy="96" r="21" fill="#FBF9F3"/>
-        <circle cx="174" cy="96" r="17" fill="#3E4A5A"/>
-        <circle cx="174" cy="96" r="17" fill="none" stroke="#2C3542" stroke-width="1.6"/>
-        <path d="M162 102 q5 -8 12 -3 q7 5 12 -1 l0 7 a17 17 0 0 1 -24 -3 z" fill="#D9A83E"/>
-        <path d="M186 78 a17 17 0 0 0 -9 -5" stroke="#8FA3B8" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M152 88 a27 27 0 0 1 8 -12" stroke="#CFC8B6" stroke-width="4" stroke-linecap="round" fill="none"/>
-        <path d="M128 40 q20 -8 46 -4 q24 3 46 4 l0 4 -92 0 z" fill="#EFE7D2"/>
-        <rect x="136" y="22" width="16" height="16" rx="1.5" fill="#C4574A"/>
-        <rect x="136" y="22" width="16" height="6" rx="1.5" fill="#4A6FA3"/>
-        <rect x="139" y="30" width="10" height="5" rx="1" fill="#FBF9F3"/>
-        <ellipse cx="166" cy="31" rx="9" ry="8" fill="#8A5E9E"/>
-        <ellipse cx="166" cy="25" rx="7" ry="3" fill="#A379B5"/>
-        <rect x="180" y="26" width="18" height="12" rx="2" fill="#5B8FA3"/>
-        <rect x="183" y="21" width="12" height="6" rx="2" fill="#D9A83E"/>
-      </g>
-      <g>
-        <path d="M62 134 q-4 -18 14 -19 l10 1 -1 10 q-11 -1 -12 8 z" fill="#2C3A5A"/>
-        <path d="M60 130 q-4 6 2 8 l12 0 0 -5 q-8 -4 -14 -3 z" fill="#F5F2EA"/>
-        <path d="M63 135.5 l10 0" stroke="#26262E" stroke-width="1.8"/>
-        <path d="M72 84 Q90 78 94 96 L92 120 70 117 Q66 98 72 84 Z" fill="#26262E"/>
-        <path d="M88 100 q9 5 8 15" stroke="#EDBE96" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <circle cx="82" cy="70" r="11.5" fill="#EDBE96"/>
-        <path d="M70.5 68 a11.5 11.5 0 0 1 22 -2 l-4.5 -0.5 a14.5 14.5 0 0 0 -13 1 z" fill="#3A2A1E"/>
-        <circle cx="69" cy="60" r="5" fill="#3A2A1E"/>
-        <circle cx="89" cy="70" r="3" fill="#FFFFFF"/>
-        <circle cx="90" cy="70" r="1.5" fill="#26201A"/>
-        <rect x="70" y="64" width="7" height="14" rx="2.5" fill="#5B8FA3" transform="rotate(-8 73 71)"/>
-        <path d="M76 82 q-4 -6 -2 -12" stroke="#EDBE96" stroke-width="5" stroke-linecap="round" fill="none"/>
-        <g stroke="#C86A3A" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1.5 6">
-          <path d="M96 68 L148 86"/>
-          <path d="M96 75 L146 95"/>
-        </g>
-      </g>
-      <g fill="none" stroke="#A9502A" stroke-width="2.8" stroke-linecap="round">
-        <path d="M52 34 a7.5 7.5 0 1 1 10 8.5 q-2.2 1.2 -2.2 4.5"/>
-      </g>
-      <circle cx="60" cy="53" r="2" fill="#A9502A"/>
-    </g>
-  </svg>
-</template>
-
-<template id="tplScena2">
-  <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Il cartone del latte intero dentro la pentola d'acciaio sul fuoco acceso, mentre Eleonora lo tiene d'occhio alla lettera">
-    <defs><clipPath id="v2c3"><rect x="0" y="0" width="240" height="170" rx="14"/></clipPath></defs>
-    <g clip-path="url(#v2c3)">
-      <rect x="0" y="0" width="240" height="170" fill="#EFE8D6"/>
-      <g stroke="#DCD2B8" stroke-width="1.6" fill="none">
-        <path d="M0 30 H196 M0 60 H196 M0 90 H196"/>
-        <path d="M36 0 V96 M76 0 V96 M116 0 V96 M156 0 V96"/>
-        <rect x="6" y="6" width="24" height="18"/><rect x="46" y="6" width="24" height="18"/><rect x="86" y="6" width="24" height="18"/><rect x="126" y="6" width="24" height="18"/><rect x="166" y="6" width="24" height="18"/>
-        <rect x="6" y="36" width="24" height="18"/><rect x="46" y="36" width="24" height="18"/><rect x="86" y="36" width="24" height="18"/><rect x="126" y="36" width="24" height="18"/><rect x="166" y="36" width="24" height="18"/>
-        <rect x="6" y="66" width="24" height="18"/><rect x="46" y="66" width="24" height="18"/><rect x="86" y="66" width="24" height="18"/><rect x="126" y="66" width="24" height="18"/><rect x="166" y="66" width="24" height="18"/>
-      </g>
-      <rect x="196" y="0" width="44" height="96" fill="#D8D2C2"/>
-      <g>
-        <rect x="200" y="6" width="16" height="7" rx="1" fill="#8FA3A0"/><rect x="219" y="6" width="16" height="7" rx="1" fill="#3E4A46"/>
-        <rect x="200" y="17" width="10" height="7" rx="1" fill="#EFE8D6"/><rect x="213" y="17" width="22" height="7" rx="1" fill="#6E8280"/>
-        <rect x="200" y="28" width="20" height="7" rx="1" fill="#4A5A56"/><rect x="223" y="28" width="12" height="7" rx="1" fill="#B9C2BC"/>
-        <rect x="200" y="39" width="13" height="7" rx="1" fill="#8FA3A0"/><rect x="216" y="39" width="19" height="7" rx="1" fill="#3E4A46"/>
-        <rect x="200" y="50" width="24" height="7" rx="1" fill="#B9C2BC"/><rect x="227" y="50" width="8" height="7" rx="1" fill="#6E8280"/>
-        <rect x="200" y="61" width="11" height="7" rx="1" fill="#4A5A56"/><rect x="214" y="61" width="21" height="7" rx="1" fill="#8FA3A0"/>
-        <rect x="200" y="72" width="18" height="7" rx="1" fill="#6E8280"/><rect x="221" y="72" width="14" height="7" rx="1" fill="#EFE8D6"/>
-        <rect x="200" y="83" width="14" height="7" rx="1" fill="#3E4A46"/><rect x="217" y="83" width="18" height="7" rx="1" fill="#B9C2BC"/>
-      </g>
-      <rect x="0" y="96" width="240" height="14" fill="#5A6570"/>
-      <rect x="0" y="110" width="240" height="60" fill="#E3D2AE"/>
-      <g stroke="#D0BC92" stroke-width="1.6"><path d="M60 110 V170 M150 110 V170"/></g>
-      <path d="M96 126 q8 6 0 12" stroke="#B9A87F" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <path d="M186 126 q8 6 0 12" stroke="#B9A87F" stroke-width="3" stroke-linecap="round" fill="none"/>
-      <rect x="52" y="88" width="176" height="20" rx="4" fill="#CDD2D6"/>
-      <rect x="52" y="88" width="176" height="4" rx="2" fill="#E6EAED"/>
-      <g fill="#9AA2A8">
-        <circle cx="64" cy="100" r="3.4"/><circle cx="76" cy="100" r="3.4"/><circle cx="88" cy="100" r="3.4"/><circle cx="100" cy="100" r="3.4"/>
-      </g>
-      <circle cx="208" cy="98" r="7.5" fill="none" stroke="#2B2F33" stroke-width="2.4"/>
-      <circle cx="208" cy="98" r="3" fill="#2B2F33"/>
-      <g>
-        <ellipse cx="150" cy="88" rx="26" ry="5" fill="#2B2F33"/>
-        <g fill="#4A90C4">
-          <path d="M132 87 q-2 -6 3 -8 q0 4 3 5 q2 -3 1 -5 q5 3 2 8 z"/>
-          <path d="M146 87 q-2 -7 3 -9 q0 5 3 6 q2 -3 1 -6 q6 4 2 9 z"/>
-          <path d="M160 87 q-2 -6 3 -8 q0 4 3 5 q2 -3 1 -5 q5 3 2 8 z"/>
-        </g>
-        <g fill="#7FB8DE" opacity=".9">
-          <path d="M138 87 q-1 -4 2 -5 q0 3 2 3.5 q1 -2 .5 -3.5 q4 2 1.5 5 z"/>
-          <path d="M152 87 q-1 -4 2 -5 q0 3 2 3.5 q1 -2 .5 -3.5 q4 2 1.5 5 z"/>
-        </g>
-      </g>
-      <g>
-        <path d="M136 26 L136 64 L162 64 L162 26 Z" fill="#FBF9F3"/>
-        <path d="M136 26 L141 18 L157 18 L162 26 Z" fill="#EFEBDD"/>
-        <rect x="145" y="14.5" width="8" height="5" rx="2.5" fill="#5B8FA3"/>
-        <rect x="136" y="36" width="26" height="16" fill="#3E7D52"/>
-        <path d="M139 44 q5 -5 9 0 q4 5 8 0" stroke="#FBF9F3" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <rect x="140" y="28" width="18" height="5" rx="2" fill="#C4574A"/>
-      </g>
-      <rect x="118" y="52" width="64" height="34" rx="4" fill="#C3CBD1"/>
-      <rect x="118" y="52" width="64" height="34" rx="4" fill="none" stroke="#9AA6AE" stroke-width="1.4"/>
-      <path d="M124 56 q-2 14 2 28" stroke="#E9EEF1" stroke-width="4" stroke-linecap="round" fill="none" opacity=".8"/>
-      <rect x="116" y="50" width="68" height="6" rx="3" fill="#9AA6AE"/>
-      <path d="M116 62 l-12 0" stroke="#2B2F33" stroke-width="5" stroke-linecap="round"/>
-      <path d="M184 62 l12 0" stroke="#2B2F33" stroke-width="5" stroke-linecap="round"/>
-      <g fill="none" stroke="#DDE5E9" stroke-width="2.6" stroke-linecap="round">
-        <path d="M124 44 q-4 -7 0 -13 q4 -6 0 -12"/>
-        <path d="M176 46 q4 -7 0 -13 q-4 -6 0 -12"/>
-      </g>
-      <g>
-        <path d="M-4 92 Q16 78 34 90 L38 112 -4 118 Z" fill="#26262E"/>
-        <circle cx="24" cy="70" r="12" fill="#EDBE96"/>
-        <path d="M12 68 a12 12 0 0 1 23 -2.5 l-5 -0.5 a15 15 0 0 0 -13 1.5 z" fill="#3A2A1E"/>
-        <circle cx="11" cy="60" r="5" fill="#3A2A1E"/>
-        <circle cx="30.5" cy="70" r="2" fill="#26201A"/>
-        <rect x="10" y="64" width="7" height="14" rx="2.5" fill="#5B8FA3" transform="rotate(-8 13 71)"/>
-        <path d="M30 92 q22 -8 42 -14" stroke="#EDBE96" stroke-width="6.4" stroke-linecap="round" fill="none"/>
-        <path d="M72 78 l9 -3 M72 78 l10 1" stroke="#EDBE96" stroke-width="3.4" stroke-linecap="round"/>
-        <g stroke="#C86A3A" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1.5 6">
-          <path d="M38 70 L130 38"/>
-          <path d="M40 78 L132 48"/>
-        </g>
-      </g>
-    </g>
-  </svg>
-</template>
-
-<template id="tplScena3">
-  <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dalla porta di casa Eleonora lancia letteralmente fuori il sacco giallo della spazzatura">
-    <defs><clipPath id="v2c4"><rect x="0" y="0" width="240" height="170" rx="14"/></clipPath></defs>
-    <g clip-path="url(#v2c4)">
-      <rect x="0" y="0" width="240" height="170" fill="#E9C6A4"/>
-      <path d="M14 60 q6 -8 2 -16 l10 2 q2 10 -4 16 z" fill="#F2DCC2" opacity=".8"/>
-      <rect x="10" y="76" width="18" height="9" rx="2" fill="#D9C29A"/>
-      <rect x="13" y="78.5" width="12" height="4" rx="1" fill="#B99F6F"/>
-      <rect x="0" y="128" width="240" height="42" fill="#C7BFAE"/>
-      <path d="M0 142 H240 M0 157 H240" stroke="#B4AA96" stroke-width="1.2"/>
-      <rect x="58" y="146" width="74" height="16" rx="3" fill="#4A443A"/>
-      <rect x="61" y="149" width="68" height="10" rx="2" fill="#5C554A"/>
-      <rect x="52" y="14" width="86" height="118" rx="3" fill="#2E2620"/>
-      <rect x="52" y="112" width="86" height="20" fill="#8D8478"/>
-      <g fill="#6E6659"><circle cx="62" cy="118" r="1.4"/><circle cx="74" cy="124" r="1.6"/><circle cx="90" cy="117" r="1.3"/><circle cx="104" cy="123" r="1.5"/><circle cx="120" cy="118" r="1.4"/><circle cx="132" cy="125" r="1.3"/></g>
-      <rect x="44" y="8" width="10" height="124" rx="2" fill="#E5D9C4"/>
-      <rect x="136" y="8" width="10" height="124" rx="2" fill="#E5D9C4"/>
-      <rect x="44" y="4" width="102" height="9" rx="2" fill="#E5D9C4"/>
-      <g transform="translate(8,10) skewY(-6)">
-        <rect x="0" y="0" width="38" height="122" rx="2" fill="#D9C29A"/>
-        <rect x="4" y="6" width="30" height="86" rx="2" fill="#8FA3B8"/>
-        <g stroke="#C4AC82" stroke-width="2.4">
-          <path d="M4 28 h30 M4 50 h30 M4 72 h30"/>
-          <path d="M19 6 v86"/>
-        </g>
-        <circle cx="33" cy="102" r="2.6" fill="#6E5F4B"/>
-      </g>
-      <g transform="translate(146,10) skewY(6)">
-        <rect x="0" y="0" width="34" height="118" fill="#3E3830"/>
-        <g fill="#57503F">
-          <rect x="4" y="8" width="26" height="7" rx="2"/><rect x="4" y="24" width="26" height="7" rx="2"/>
-          <rect x="4" y="40" width="26" height="7" rx="2"/><rect x="4" y="56" width="26" height="7" rx="2"/>
-          <rect x="4" y="72" width="26" height="7" rx="2"/><rect x="4" y="88" width="26" height="7" rx="2"/>
-        </g>
-      </g>
-      <g>
-        <path d="M88 100 l-3 22 7 1 4 -21 z" fill="#2C3A5A"/>
-        <path d="M100 101 l3 21 7 0 -2 -22 z" fill="#2C3A5A"/>
-        <path d="M84 121 q-4 6 3 7 l8 0 0 -5 q-5 -3 -11 -2 z" fill="#F5F2EA"/>
-        <path d="M103 121 l0 7 10 0 q3 -5 -2 -7 z" fill="#F5F2EA"/>
-        <path d="M86 125.5 l9 0 M104 125 l9 0" stroke="#26262E" stroke-width="1.8"/>
-        <path d="M84 66 Q100 58 110 72 L108 102 86 102 Q78 82 84 66 Z" fill="#26262E"/>
-        <circle cx="94" cy="52" r="11.5" fill="#EDBE96"/>
-        <path d="M82.5 50 a11.5 11.5 0 0 1 22 -2.5 l-4.5 -0.5 a14.5 14.5 0 0 0 -13 1.5 z" fill="#3A2A1E"/>
-        <circle cx="107" cy="43" r="4.8" fill="#3A2A1E"/>
-        <circle cx="90" cy="52" r="1.9" fill="#26201A"/>
-        <path d="M87 58 q3.5 2 7 .5" stroke="#C98B60" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-        <path d="M106 76 q18 -10 34 -16" stroke="#EDBE96" stroke-width="6.4" stroke-linecap="round" fill="none"/>
-        <path d="M86 78 q-6 8 -2 16" stroke="#EDBE96" stroke-width="5.4" stroke-linecap="round" fill="none"/>
-      </g>
-      <path d="M142 58 Q172 34 208 52" fill="none" stroke="#6E5240" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="2 8"/>
-      <g transform="translate(206,58) rotate(16)">
-        <path d="M-16 2 Q-18 -16 0 -18 Q18 -16 16 2 Q14 18 0 18 Q-14 18 -16 2 Z" fill="#E8C445"/>
-        <path d="M-16 2 Q-18 -16 0 -18 Q7 -17 11 -11 Q-7 -9 -9 9 Q-14 7 -16 2 Z" fill="#D4A017" opacity=".6"/>
-        <g opacity=".55">
-          <circle cx="2" cy="2" r="4.5" fill="#5B8FA3"/>
-          <rect x="-9" y="-6" width="8" height="10" rx="2" fill="#C4574A"/>
-          <circle cx="7" cy="-8" r="3.4" fill="#FBF9F3"/>
-        </g>
-        <path d="M-5 -18 q5 -8 10 0 z" fill="#B8860B"/>
-        <path d="M-4 -20 l7 -5 M4 -20 l6 -6" stroke="#B8860B" stroke-width="2.6" stroke-linecap="round"/>
-      </g>
-      <g stroke="#8C7A61" stroke-width="2.4" stroke-linecap="round">
-        <path d="M160 50 l14 -7"/><path d="M166 64 l13 -6"/><path d="M158 76 l11 -4"/>
-      </g>
-    </g>
-  </svg>
-</template>
 
 <script>
 "use strict";
@@ -1234,7 +1004,11 @@ function vaiA(i){
   }
   window.scrollTo({top:0, behavior:'smooth'});
 }
+var completate = [false,false,false,false,false,false,false];
+var cronoStart = null;
+function avviaCrono(){ if(cronoStart === null) cronoStart = Date.now(); }
 function segnaCompletata(i){
+  completate[i] = true;
   var pills = document.querySelectorAll('nav.steps .pill');
   [].forEach.call(pills, function(p){
     if(Number(p.getAttribute('data-go'))===i) p.classList.add('done');
@@ -1330,6 +1104,7 @@ var FB_Q1 = {
 };
 [].forEach.call(document.querySelectorAll('[data-q1]'), function(btn){
   btn.addEventListener('click', function(){
+    avviaCrono();
     var scelta = btn.getAttribute('data-q1');
     [].forEach.call(document.querySelectorAll('[data-q1]'), function(b){
       b.classList.remove('giusta','ripensa');
@@ -1406,6 +1181,14 @@ var SCENE = [
   }
 ];
 
+var SCENE_FOTO = [
+  {foto:['2.jpg','6.jpg'], alt:['Eleonora solleva in aria una sedia della sala da pranzo, senza sapere dove appoggiarla',
+                                'Eleonora, a gattoni sotto il tavolo di vetro, spazza il pavimento con la scopa']},
+  {foto:['3.jpg'], alt:['Eleonora accovacciata fissa l&rsquo;obl&ograve; chiuso della lavatrice, col telefono in mano']},
+  {foto:['4.jpg'], alt:['Il cartone del latte intero, ancora sigillato, dentro la pentola sul fornello acceso']},
+  {foto:['5.jpg'], alt:['Eleonora lancia il sacco giallo della spazzatura fuori dalla porta di casa']}
+];
+
 (function(){
   var griglia = document.getElementById('sceneGrid');
   var risolte = 0;
@@ -1417,8 +1200,22 @@ var SCENE = [
 
     var fig = document.createElement('figure');
     fig.className = 'figura';
-    var tpl = document.getElementById('tplScena'+idx);
-    fig.appendChild(tpl.content.cloneNode(true));
+    var fdati = SCENE_FOTO[idx] || {foto:[], alt:[]};
+    function creaImg(src, alt){
+      var im = document.createElement('img');
+      im.src = src;
+      im.alt = (alt || '').replace(/&rsquo;/g,'’').replace(/&ograve;/g,'ò');
+      im.loading = 'lazy';
+      return im;
+    }
+    if(fdati.foto.length > 1){
+      var duo = document.createElement('div');
+      duo.className = 'duo';
+      fdati.foto.forEach(function(f, k){ duo.appendChild(creaImg(f, fdati.alt[k])); });
+      fig.appendChild(duo);
+    } else if(fdati.foto.length === 1){
+      fig.appendChild(creaImg(fdati.foto[0], fdati.alt[0]));
+    }
     box.appendChild(fig);
 
     var bq = document.createElement('blockquote');
@@ -1453,6 +1250,7 @@ var SCENE = [
       b.className = 'opt';
       b.innerHTML = '<span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/><\/svg><\/span><span class="ot">' + op.t + '<\/span>';
       b.addEventListener('click', function(){
+        avviaCrono();
         if(revealed) return;
         [].forEach.call(box.querySelectorAll('.opt'), function(x){ x.classList.remove('ripensa'); });
         if(op.ok){
@@ -1593,6 +1391,7 @@ function radarPulisci(boxEl){
    TAPPA 5 · OFFICINA (riscrittura del messaggio del papà)
 ============================================================ */
 document.getElementById('btnCollaudo').addEventListener('click', function(){
+  avviaCrono();
   var ok = valida(document.getElementById('txtRiscrivi'), document.getElementById('valRiscrivi'), 40, 'La riscrittura');
   if(ok){
     radarEleonora(document.getElementById('txtRiscrivi').value, document.getElementById('radarRiscrivi'));
@@ -1619,6 +1418,7 @@ document.getElementById('btnCollaudo').addEventListener('click', function(){
 
 /* tappa 3: basta scrivere qualcosa di sensato nel diario per segnarla */
 document.getElementById('txtDiario').addEventListener('input', function(){
+  avviaCrono();
   var t = this.value;
   if(paroleDi(t).length >= 6 && !sembraInsensato(t)) segnaCompletata(2);
 });
@@ -1735,6 +1535,7 @@ var MODI = [
     btn.className = 'btn btn-pri';
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 5.9L3 18v3h3l5.8-5.7a4.5 4.5 0 0 0 5.9-6l-3.2 3.2-2.5-.5-.5-2.5Z"/><\/svg><span>Collauda la traduzione<\/span>';
     btn.addEventListener('click', function(){
+      avviaCrono();
       stato[i].testo = ta.value;
       var ok = valida(ta, val, 5, 'La traduzione');
       if(!ok){ fb.className = 'feedback'; fb.innerHTML = ''; radarPulisci(radar); return; }
@@ -1861,6 +1662,7 @@ var SIMS = [
   }
 
   document.getElementById('btnSim').addEventListener('click', function(){
+    avviaCrono();
     salvaCorrente();
     var ok = valida(txt, val, 20, 'La riscrittura');
     if(!ok){ fb.className='feedback'; fb.innerHTML=''; radarPulisci(document.getElementById('radarSim')); return; }
@@ -1985,6 +1787,7 @@ var CACCIA = [
     b.className = 'hot';
     b.textContent = tok.t;
     b.addEventListener('click', function(){
+      avviaCrono();
       if(tok.trap){
         if(b.classList.contains('trovata')) return;
         b.classList.add('trovata');
@@ -1999,6 +1802,7 @@ var CACCIA = [
             tok.why + '<br><br><strong>La caccia &egrave; chiusa.<\/strong> Hai letto una consegna mai vista e le trappole ' +
             'le hai viste <em>prima<\/em> di caderci: &egrave; esattamente quello che ti succeder&agrave; d’ora in poi, ' +
             'senza nemmeno accorgertene. Ora s&igrave; che puoi mettere nero su bianco, qui sotto.';
+          segnaCompletata(6);
         }
       } else {
         b.classList.remove('err');
@@ -2066,6 +1870,53 @@ var CACCIA = [
     b.addEventListener('click', function(){ leggi(b.getAttribute('data-say'), b); });
   });
 })();
+
+/* ============================================================
+   TAPPA 7 · SCHEDA DI VERIFICA FINALE (spunte + tempo)
+============================================================ */
+function fmtDurata(ms){
+  var tot = Math.max(0, Math.round(ms/1000));
+  var m = Math.floor(tot/60), s = tot%60;
+  return m + ' min ' + (s<10?'0':'') + s + ' s';
+}
+var CHK = [
+  {nome:'Il caso', desc:'hai risposto sul meccanismo inceppato'},
+  {nome:'L’indagine', desc:'hai scovato le quattro trappole'},
+  {nome:'Gli ingredienti', desc:'hai valutato una consegna sul diario'},
+  {nome:'Il traduttore', desc:'hai tradotto almeno quattro modi di dire'},
+  {nome:'L’officina', desc:'hai collaudato la riscrittura del papà'},
+  {nome:'Il laboratorio', desc:'hai riscritto almeno tre consegne'},
+  {nome:'Rifletto', desc:'hai completato la caccia alla trappola'}
+];
+document.getElementById('btnVerifica').addEventListener('click', function(){
+  var lista = document.getElementById('checkList');
+  lista.innerHTML = '';
+  var fatte = 0, mancano = [];
+  CHK.forEach(function(t, i){
+    var done = completate[i];
+    if(done){ fatte++; } else { mancano.push(t.nome); }
+    var li = document.createElement('li');
+    if(done) li.className = 'ok';
+    li.innerHTML = '<span class="cbox"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6 6L20 6"/><\/svg><\/span>' +
+      '<span class="cn"><b>' + t.nome + '<\/b> &mdash; ' + t.desc + '<\/span>' +
+      '<span class="cstato">' + (done ? 'Fatta' : 'Da fare') + '<\/span>';
+    lista.appendChild(li);
+  });
+  document.getElementById('checkTempo').innerHTML = cronoStart ? fmtDurata(Date.now() - cronoStart) : '&mdash;';
+  var v = document.getElementById('checkVerdetto');
+  if(fatte === CHK.length){
+    v.className = 'check-verdetto tutto';
+    v.innerHTML = '<span class="lab">Percorso completo<\/span>Tutte e sette le tappe, attraversate da te. ' +
+      'Ora puoi copiare il quaderno di bottega qui sopra e consegnarlo all’insegnante.';
+  } else {
+    v.className = 'check-verdetto manca';
+    v.innerHTML = '<span class="lab">Ci sei quasi (' + fatte + ' su ' + CHK.length + ')<\/span>' +
+      'Ti manca ancora: <strong>' + mancano.join('<\/strong>, <strong>') + '<\/strong>. ' +
+      'Le trovi nella barra in alto: completale con calma e poi ricontrolla.';
+  }
+  document.getElementById('checkout').classList.add('on');
+  v.scrollIntoView({behavior:'smooth', block:'nearest'});
+});
 
 /* ============================================================
    MODAL DOCENTI
