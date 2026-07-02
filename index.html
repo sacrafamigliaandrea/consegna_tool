@@ -140,14 +140,15 @@ section.step.on{display:block}
 .feedback.neutro .fb-lab{color:var(--pri)}
 
 /* ---------- indagine (card scena) ---------- */
-.scene-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-@media(max-width:900px){.scene-grid{grid-template-columns:1fr}}
-.scena{display:flex;flex-direction:column}
-.scena .figura{margin:0 0 12px}
-.scena .figura svg{width:100%;height:auto;display:block}
-.scena .figura img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:var(--shadow)}
-.scena .figura .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:520px){.scena .figura .duo{grid-template-columns:1fr}}
+.scene-grid{display:flex;flex-direction:column;gap:0}
+.scena{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:start;
+  padding:22px 0;border-bottom:1px solid var(--brd)}
+.scena:first-child{padding-top:4px}
+.scena:last-child{border-bottom:0;padding-bottom:4px}
+@media(max-width:640px){.scena{grid-template-columns:1fr;gap:14px}}
+.scena .figura{margin:0;display:flex;flex-direction:column;gap:10px}
+.scena .figura img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:12px;box-shadow:var(--shadow)}
+.scena-attivita{min-width:0}
 .caso-foto{max-width:360px;margin:8px auto 6px}
 .caso-foto img{width:100%;height:auto;display:block;border-radius:16px;box-shadow:var(--shadow)}
 .caso-foto figcaption{font-size:14.5px;color:var(--muted);font-style:italic;text-align:center;margin-top:8px}
@@ -1208,29 +1209,25 @@ var SCENE_FOTO = [
       im.loading = 'lazy';
       return im;
     }
-    if(fdati.foto.length > 1){
-      var duo = document.createElement('div');
-      duo.className = 'duo';
-      fdati.foto.forEach(function(f, k){ duo.appendChild(creaImg(f, fdati.alt[k])); });
-      fig.appendChild(duo);
-    } else if(fdati.foto.length === 1){
-      fig.appendChild(creaImg(fdati.foto[0], fdati.alt[0]));
-    }
+    fdati.foto.forEach(function(f, k){ fig.appendChild(creaImg(f, fdati.alt[k])); });
     box.appendChild(fig);
+
+    var att = document.createElement('div');
+    att.className = 'scena-attivita';
 
     var bq = document.createElement('blockquote');
     bq.innerHTML = sc.quote;
-    box.appendChild(bq);
+    att.appendChild(bq);
 
     var fatto = document.createElement('p');
     fatto.className = 'fatto';
     fatto.innerHTML = '<strong>Che cosa ha fatto:<\/strong> ' + sc.fatto;
-    box.appendChild(fatto);
+    att.appendChild(fatto);
 
     var dom = document.createElement('h3');
     dom.style.fontSize = '17.5px';
     dom.textContent = 'Dove si nascondeva la trappola?';
-    box.appendChild(dom);
+    att.appendChild(dom);
 
     var fb = document.createElement('div');
     fb.className = 'feedback';
@@ -1270,11 +1267,12 @@ var SCENE_FOTO = [
           fb.innerHTML = '<span class="fb-lab">Indizio<\/span>' + op.why;
         }
       });
-      box.appendChild(b);
+      att.appendChild(b);
     });
-    box.appendChild(fb);
-    box.appendChild(tagEl);
-    box.appendChild(rev);
+    att.appendChild(fb);
+    att.appendChild(tagEl);
+    att.appendChild(rev);
+    box.appendChild(att);
     griglia.appendChild(box);
   });
 
